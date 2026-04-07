@@ -5,11 +5,11 @@ import { websocketErrorListen } from "./error/error.js";
 import { gameUpdatesListen } from "./game/updates.js";
 import { gameConnectionsListen } from "./game/connections.js";
 import { gameActionsListen } from "./game/action.js";
-
+import { env } from "../../env.js";
 export let socket = null;
 export async function connectSocket() {
   if (socket) return;
-  socket = io("ws://localhost:8008");
+  socket = io(env.CARD_STUDIO_WEBSOCKET_URL);
 
   console.log("CONNECTED TO SOCKET SERVER");
   // expose on window so other legacy code can access it
