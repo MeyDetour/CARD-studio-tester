@@ -1,0 +1,300 @@
+/* Conteneur principal */
+.loosePage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;  background: #09091c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Texte par-dessus les particules */
+.looseContent {
+  z-index: 10;
+  color: white;
+  text-align: center; 
+
+  height: 95%;
+  width: 40%;  background: #8282823d;
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  padding: 33px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 5;
+    h1{
+        font-weight: bold;
+  color: white;
+    }
+  > img {
+    height: 47%;
+  }
+  p {
+    font-size: 34px;
+  }
+  .buttons{
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    >.button{
+
+    width: 100%;
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    }
+  }
+} 
+/*=====RAIN */
+.d9-drop {
+    width: 8px;
+    height: 13px;
+    position: absolute;
+    border-radius: 50%;
+    top: -4%; /*-4%*/
+    left: 10%;
+    background: #7FC1F9;
+    transform: translateX(0%) rotate(20deg);
+    z-index: 3;
+}
+
+.d9-drop:after {
+    position: absolute;
+    content: '';
+    display: block;
+    top: -6px;
+    left: -1px;
+    height: 10px;
+    width: 13px;
+    clip-path: polygon(37% 0%, 10% 100%, 70% 107%);
+    background: #7FC1F9;
+}
+
+.d9-drop1 {
+    left: 15%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+.d9-drop2 {
+    left: 22.08%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0.8s;
+}
+
+.d9-drop3 {
+    left: 29.16%;
+    animation: d9-drop 0.8s ease-in-out infinite;
+    animation-delay: 0.3s;
+}
+
+
+.d9-drop4 {
+    left: 36.24%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0.8s;
+}
+
+
+.d9-drop5 {
+    left: 43.32%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0.4s;
+}
+
+
+.d9-drop6 {
+    left: 50.40%;
+    animation: d9-drop 0.7s ease-in-out infinite;
+    animation-delay: 0.7s;
+}
+
+
+.d9-drop7 {
+    left: 57.48%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 1.3s;
+}
+
+.d9-drop8 {
+    left: 64.56%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 1.6s;
+}
+
+.d9-drop9 {
+    left: 71.64%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0.6s;
+}
+
+.d9-drop10 {
+    left: 78.72%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+
+.d9-drop11 {
+    left: 85.80%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 1.9s;
+}
+
+
+.d9-drop12 {
+    left: 92.88%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 3s;
+}
+
+
+.d9-drop13 {
+    left: 100%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 2.5s;
+}
+
+
+.d9-dropMedium {
+    width: 5px;
+    height: 7px;
+    position: absolute;
+    border-radius: 50%;
+    top: -4%;
+    left: 10%;
+    background: #7391a9;
+    transform: translateX(0%) rotate(20deg);
+    z-index: 3;
+}
+
+.d9-dropMedium:after {
+    position: absolute;
+    content: '';
+    display: block;
+    top: -3px;
+    left: -1px;
+    height: 6px;
+    width: 9px;
+    clip-path: polygon(37% 0%, 10% 100%, 70% 107%);
+    background: #7391a9;
+}
+
+.d9-dropMedium1 {
+    left: 10%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+.d9-dropMedium1::after {
+    animation: d9-drop-after 1s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+.d9-dropMedium2 {
+    left: 17.08%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+
+.d9-dropMedium3 {
+    left: 24.16%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0.6s;
+}
+
+
+.d9-dropMedium4 {
+    left: 31.24%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0.3s;
+}
+
+
+.d9-dropMedium5 {
+    left: 38.32%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0.6s;
+}
+
+
+.d9-dropMedium6 {
+    left: 45.40%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0.2s;
+}
+
+
+.d9-dropMedium7 {
+    left: 52.48%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0.6s;
+}
+
+
+.d9-dropMedium8 {
+    left: 59.56%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0.7s;
+}
+
+
+.d9-dropMedium9 {
+    left: 66.64%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0.8s;
+}
+
+.d9-dropMedium10 {
+    left: 73.72%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0.2s;
+}
+
+
+.d9-dropMedium11 {
+    left: 80.80%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0.3s;
+}
+
+
+.d9-dropMedium12 {
+    left: 83.88%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0.6s;
+}
+
+
+.d9-drop13 {
+    left: 95%;
+    animation: d9-drop 1s ease-in-out infinite;
+    animation-delay: 0.4s;
+}
+
+@keyframes d9-drop {
+    0% {
+        top: -4%;
+
+    }
+    100% {
+
+        top: 104%;
+        transform: translateX(-400%) rotate(0deg);
+    }
+
+}

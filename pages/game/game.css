@@ -1,0 +1,41 @@
+.gamePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  #error-container {
+    display: none;
+    border-radius: 10px;
+    width: 80%;
+    height: fit-content;
+    top: 9%;
+    background: #ff00002b;
+    color: black;
+    background: #ff00002b;
+    align-self: center;
+    padding: 36px 32px;
+    box-sizing: border-box;
+    border: 4px solid #f1a1a1;
+    border-radius: 24px;
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -4px rgba(5, 2, 2, 0.1);
+      flex-direction: column;
+      align-items: center;
+    > * {
+      margin: 0;
+    }
+    p {
+     
+            color: #ff2d2d;
+            font-family: Arimo;
+            font-size: 26px; 
+      font-style: normal;
+      font-weight: 400;
+      line-height: 26px; /* 200% */
+    }
+    li {
+      text-align: start;
+    }
+  }
+}

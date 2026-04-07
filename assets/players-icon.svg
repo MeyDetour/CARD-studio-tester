@@ -1,0 +1,14 @@
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 6.97933C0 3.12475 3.12475 0 6.97933 0H20.938C24.7926 0 27.9173 3.12475 27.9173 6.97933V20.938C27.9173 24.7926 24.7926 27.9173 20.938 27.9173H6.97933C3.12475 27.9173 0 24.7926 0 20.938V6.97933Z" fill="#F1F5F9" style="fill:#F1F5F9;fill:color(display-p3 0.9451 0.9608 0.9765);fill-opacity:1;"/>
+<g clip-path="url(#clip0_8_3392)">
+<path d="M16.2851 19.1933V18.0301C16.2851 17.413 16.04 16.8213 15.6037 16.385C15.1674 15.9487 14.5757 15.7036 13.9587 15.7036H10.469C9.85201 15.7036 9.26027 15.9487 8.82398 16.385C8.38768 16.8213 8.14258 17.413 8.14258 18.0301V19.1933" stroke="#45556C" style="stroke:#45556C;stroke:color(display-p3 0.2710 0.3341 0.4242);stroke-opacity:1;" stroke-width="1.16322" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16.2852 8.79871C16.784 8.92804 17.2258 9.21936 17.5412 9.62696C17.8566 10.0345 18.0278 10.5353 18.0278 11.0507C18.0278 11.5661 17.8566 12.0669 17.5412 12.4744C17.2258 12.882 16.784 13.1734 16.2852 13.3027" stroke="#45556C" style="stroke:#45556C;stroke:color(display-p3 0.2710 0.3341 0.4242);stroke-opacity:1;" stroke-width="1.16322" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M19.7751 19.1933V18.0301C19.7747 17.5146 19.6032 17.0139 19.2873 16.6065C18.9715 16.1991 18.5294 15.9081 18.0303 15.7792" stroke="#45556C" style="stroke:#45556C;stroke:color(display-p3 0.2710 0.3341 0.4242);stroke-opacity:1;" stroke-width="1.16322" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12.2136 13.3771C13.4985 13.3771 14.5401 12.3355 14.5401 11.0507C14.5401 9.76583 13.4985 8.72424 12.2136 8.72424C10.9288 8.72424 9.88721 9.76583 9.88721 11.0507C9.88721 12.3355 10.9288 13.3771 12.2136 13.3771Z" stroke="#45556C" style="stroke:#45556C;stroke:color(display-p3 0.2710 0.3341 0.4242);stroke-opacity:1;" stroke-width="1.16322" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_8_3392">
+<rect width="13.9587" height="13.9587" fill="white" style="fill:white;fill-opacity:1;" transform="translate(6.97949 6.97937)"/>
+</clipPath>
+</defs>
+</svg>

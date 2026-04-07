@@ -1,0 +1,52 @@
+.defaultCardOfGame {
+
+    width: 78px;
+    aspect-ratio: 0.67 / 1;
+  border: 1px solid grey;
+  border-radius: 8px;
+  background: white;
+  position: relative;
+  .leftValue {
+    position: absolute;
+    left: 5%;
+    top: 3%;
+  }
+  .suit{
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 51px;
+  }
+  .leftSuit {
+
+        position: absolute;
+        right: 6%;
+        top: 1%;
+        height: fit-content;
+  }
+  .rightValue {
+    position: absolute;
+    right: 5%;
+    bottom: 3%;
+    rotate: 180deg;
+  }
+  .rightSuit {
+    position: absolute;
+    left: 3%;
+    bottom: 1%;
+    rotate: 180deg;
+  }
+  .text-red-600{
+    color:red
+  }
+  .text-slate-900{
+    color:black
+  }
+}
+
+.defaultCardOfGame.hoverable:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+}

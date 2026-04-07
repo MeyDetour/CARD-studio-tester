@@ -1,0 +1,124 @@
+.winPage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #8c91ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/assets/images/win_screen.png);
+  background-size: cover;
+  background-position: center;
+
+  .victory-image {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    height: 135px;
+    top: 7%;
+  }
+  .firstPlayerOnPodium {
+    width: 391px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+        bottom: 54%;
+  }
+.secondPlayerOnPodium {
+
+    width: 391px;
+    position: absolute;
+    bottom: 41%;
+    left: 34%;
+    transform: translate(-50%);
+  }  
+.thirdPlayerOnPodium { 
+    width: 391px;
+    position: absolute;
+    bottom: 33%;
+    right: 34%;
+    transform: translate(50%);
+  }
+  .buttonContainers {
+    z-index: 10;
+    color: white;
+    text-align: center;
+    height: 15%;
+    width: 40%;
+    border-radius: 20px;
+    padding: 33px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 5;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 1%;
+    > img {
+      height: 47%;
+    }
+    p {
+      font-size: 34px;
+    }
+    .buttons {
+            width: 57%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: stretch;
+
+      > .button {
+        cursor: pointer;
+        width: 100%;
+        border-radius: 12px;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        border: 0;
+        box-shadow:
+          0px 2px 1px 0 #818181,
+          0 -1px 1px 1px #a7a7a7,
+          inset 0px -2px 1px 2px #c3c3c3;
+       
+      }
+      >.button:hover {
+        background: #ebebeb;
+      }
+    }
+  }
+}
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  /* On force le départ dans le coin en haut à gauche pour que 
+     les calculs de translate soient absolus par rapport à l'écran */
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+
+  /* Destination finale : la position aléatoire */
+  /* On ajoute translate(-50%, -50%) pour bien centrer le point de la particule */
+  transform: translate(var(--x), var(--y));
+  background: var(--bg);
+
+  animation:
+    shoot var(--t) ease-out infinite,
+    fade var(--t) ease-out infinite;
+  animation-delay: var(--d);
+}
+
+@keyframes shoot {
+  0% {
+    /* Départ EXACT au centre de l'écran */
+    transform: translate(50vw, 30vh);
+  }
+  /* 100% est implicitement le transform défini dans .particle */
+}

@@ -1,0 +1,302 @@
+#gameplayPage {
+  position: relative;
+  .player {
+    position: absolute;
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    width: fit-content;
+    gap: 11px;
+    height: fit-content;
+    border-radius: 7px;
+    padding: 15px;
+    box-sizing: border-box;
+    background: #1a313f;
+    color: white;
+
+    .cardCount-stat {
+      position: absolute;
+      right: -24px;
+      transform: translate(100%);
+      width: 31px;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+      span {
+        position: absolute;
+        text-align: right;
+        right: 5px;
+        top: 6px;
+        color: black;
+      }
+    }
+    .globalValue {
+      position: absolute;
+      right: -15px;
+      transform: translate(100%);
+      span {
+        background: #d08700;
+        padding: 10px 20px;
+        color: white;
+        border-radius: 50px;
+        font-weight: 500;
+      }
+    }
+    .rightStatContainer {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: fit-content;
+      gap: 6px;
+      align-items: start;
+      height: fit-content;
+      .pseudo {
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      .role,
+      .gain {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        span {
+          color: white;
+        }
+        img{
+
+    width: 17px;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+        }
+      }
+    }
+
+    .playerImageContainer {
+      width: 30px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      position: relative;
+
+      flex-direction: row;
+      justify-content: end;
+      align-items: end;
+      border-radius: 50%;
+      border: 1px solid grey;
+            background: white;
+            overflow: hidden;
+            clip-path: border-box;
+      img {
+        object-fit: contain;
+        width: 100%;
+        object-position: bottom;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+      }
+    }
+    .withSkin{ 
+       width: 39px;
+    height: 39px;
+    clip-path: border-box;
+    --webkit-clip-path: border-box;
+    position: relative;
+    border: 0.2px solid #acacac;
+    overflow: hidden;
+    border-radius: 50%;
+        img{
+    width: 63px;
+    height: 63px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: -1px;
+        }
+  }
+  }
+  .currentPlayerTurn {
+    .playerImageContainer::after {
+      content: "";
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
+      position: absolute;
+      z-index: 2;
+      border-radius: 50%;
+ 
+            top: 0px;
+            left: 0px;
+      border: 2px solid gold !important;
+    }
+  }
+
+  /* user */
+  .player0 {
+    bottom: 15px;
+    left: 15px;
+  }
+
+  /*player 1 at left when 3, 4, 5, 6 players */
+  .player1.playerCount3,
+  .player1.playerCount4,
+  .player1.playerCount5,
+  .player1.playerCount6 {
+    top: 40%;
+    left: 15px;
+  }
+
+  /*==============2players==============*/
+  /*player 1 at top when 2 players*/
+  .player1.playerCount2 {
+    top: 15px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  /*==============3players==============*/
+
+  /*player 1 at left when 3 players*/
+  /*player 2 at right when 3 players*/
+  .player2.playerCount3 {
+    top: 40%;
+    right: 15px;
+    flex-direction: row-reverse;
+  }
+
+  /*==============4players==============*/
+
+  /*player 1 at left when 4 players*/
+  /*player 2 at top when 4 players*/
+  .player2.playerCount4 {
+    top: 15px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  /*player 3 at right when4 players*/
+  .player3.playerCount4 {
+    top: 40%;
+    right: 15px;
+    flex-direction: row-reverse;
+  }
+
+  /*==============5players==============*/
+
+  /*player 1 at left when 5 players*/
+  /*player 2 at top when 5 players*/
+  .player2.playerCount5 {
+    top: 15px;
+    left: 35%;
+  }
+  /*player 3 at top when 5 players*/
+  .player3.playerCount5 {
+    top: 15px;
+    right: 35%;
+  }
+  /*player 4 at right when 5 players*/
+  .player4.playerCount5 {
+    top: 40%;
+    right: 15px;
+    flex-direction: row-reverse;
+  }
+
+  /*==============6players==============*/
+
+  /*player 1 at left when 6 players*/
+  /*player 2 at top when 6 players*/
+  .player2.playerCount6 {
+    top: 15px;
+    left: 27%;
+  }
+  /*player 3 at top when 6 players*/
+  .player3.playerCount6 {
+    top: 15px;
+    right: 50%;
+  }
+  /*player 4 at top when 6 players*/
+  .player4.playerCount6 {
+    top: 15px;
+    right: 20%;
+  }
+
+  /*player 5 at top when 6 players*/
+  .player5.playerCount6 {
+    top: 40%;
+    right: 15px;
+    flex-direction: row-reverse;
+  }
+  /*==============7players==============*/
+
+  /*player 1 at left when 7 players*/
+  .player1.playerCount7 {
+    top: 60%;
+    left: 21px;
+  }
+  /*player 2 at left when 7 players*/
+  .player2.playerCount7 {
+    top: 35%;
+    left: 21px;
+  }
+  /*player 3 at top when 7 players*/
+  .player3.playerCount7 {
+    top: 15px;
+    left: 33%;
+  }
+  /*player 4 at top when 7 players*/
+  .player4.playerCount7 {
+    top: 15px;
+    right: 33%;
+  }
+
+  /*player 5 at top when 7 players*/
+  .player5.playerCount7 {
+    top: 35%;
+    right: 15px;
+    flex-direction: row-reverse;
+  } /*player 6 at top when 7 players*/
+  .player6.playerCount7 {
+    top: 60%;
+    right: 15px;
+    flex-direction: row-reverse;
+  }
+
+  /*==============8players==============*/
+
+  /*player 1 at left when 8 players*/
+  .player1.playerCount8 {
+    top: 60%;
+    left: 21px;
+  }
+  /*player 2 at left when 8 players*/
+  .player2.playerCount8 {
+    top: 35%;
+    left: 21px;
+  }
+  /*player 3 at top when 8 players*/
+  .player3.playerCount8 {
+    top: 15px;
+    left: 27%;
+  }
+  /*player 4 at top when 8 players*/
+  .player4.playerCount8 {
+    top: 15px;
+    left: 50%;
+  }
+
+  /*player 5 at top when 8 players*/
+  .player5.playerCount8 {
+    top: 15px;
+    right: 21%;
+  }
+
+  /*player 6 at top when 8 players*/
+  .player6.playerCount8 {
+    top: 35%;
+    right: 15px;
+    flex-direction: row-reverse;
+  } /*player 7 at top when 8 players*/
+  .player7.playerCount8 {
+    top: 60%;
+    right: 15px;
+    flex-direction: row-reverse;
+  }
+}

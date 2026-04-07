@@ -1,0 +1,17 @@
+.headerGames {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 14px 18px;
+  box-sizing: border-box;
+  align-items: center;
+  height: 67px;
+  box-sizing: border-box;
+  align-items: center;
+  width: 100%;
+  border-bottom: 0.8px solid #e0e8f1;
+  border-bottom: 0.8px solid color(display-p3 0.886 0.9102 0.9425);
+  background: #fff;
+  background: color(display-p3 1 1 1);
+}

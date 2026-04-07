@@ -1,0 +1,369 @@
+php -S localhost:8001 -t .
+[Mon Mar 16 15:28:37 2026] PHP 8.3.19 Development Server (http://localhost:8001) started
+[Mon Mar 16 15:28:41 2026] 127.0.0.1:36140 Accepted
+[Mon Mar 16 15:28:41 2026] 127.0.0.1:36156 Accepted
+[Mon Mar 16 15:28:41 2026] 127.0.0.1:36140 [200]: GET /
+[Mon Mar 16 15:28:41 2026] 127.0.0.1:36140 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:36156 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:36156 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50438 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50438 [200]: GET /style.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50438 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50440 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50450 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50466 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50478 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50480 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50486 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50440 [200]: GET /pages/home/home.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50450 [200]: GET /pages/games/games.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50466 [200]: GET /components/header/header.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50478 [200]: GET /components/button/button.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50480 [200]: GET /components/errorContainer/errorContainer.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50486 [200]: GET /pages/gameCodeError/gameCodeError.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50440 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50480 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50450 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50466 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50478 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50486 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50494 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50504 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50508 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50516 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50526 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50530 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50494 [200]: GET /pages/enterLink/enterLink.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50494 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50504 [200]: GET /pages/choose-pseudo/choose-pseudo.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50508 [200]: GET /pages/game/game.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50516 [200]: GET /pages/loading/loading.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50526 [200]: GET /components/game/waitingPage/waitingPage.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50530 [200]: GET /components/game/waitingPage/waitingPageCopyBlock/waitingPageCopyBlock.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50504 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50508 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50516 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50526 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50530 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50536 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50538 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50546 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50560 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50574 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50578 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50536 [200]: GET /components/game/waitingPage/waitingPagePlayersBlock/waitingPagePlayersBlock.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50538 [200]: GET /components/game/game/gameplayPage.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50546 [200]: GET /components/game/game/identityContainer/identityContainer.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50560 [200]: GET /components/game/game/statsValues/statsValues.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50574 [200]: GET /components/message/message.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50578 [200]: GET /components/defaultCard/defaultCard.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50536 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50538 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50546 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50560 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50574 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50578 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50590 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50602 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50618 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50632 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50648 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50590 [200]: GET /components/messageLog/messageLog.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50590 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50618 [200]: GET /components/game/game/widgetContainerAskPlayer/widgetContainerAskPlayer.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50618 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50632 [200]: GET /src/router/router.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50632 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50648 [200]: GET /src/main.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50648 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50602 [200]: GET /
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50602 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50658 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50674 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50674 [200]: GET /src/websocket/connection.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50674 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50658 [200]: GET /src/router/router.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50658 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50678 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50686 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50696 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50710 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50726 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50726 [200]: GET /pages/games/games.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50726 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50734 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50678 [200]: GET /components/button/button.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50686 [200]: GET /style.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50696 [200]: GET /pages/home/home.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50710 [200]: GET /components/header/header.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50744 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50734 [200]: GET /pages/gameCodeError/gameCodeError.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50744 [200]: GET /components/errorContainer/errorContainer.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50678 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50686 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50696 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50710 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50734 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50744 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50758 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50758 [200]: GET /src/main.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50758 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50770 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50770 [200]: GET /pages/enterLink/enterLink.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50770 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50784 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50788 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50784 [200]: GET /pages/game/game.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50796 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50788 [200]: GET /pages/choose-pseudo/choose-pseudo.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50802 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50796 [200]: GET /components/game/game/statsValues/statsValues.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50784 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50788 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50796 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50802 [200]: GET /pages/loading/loading.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50802 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50812 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50828 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50836 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50812 [200]: GET /components/game/game/identityContainer/identityContainer.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50828 [200]: GET /components/game/waitingPage/waitingPagePlayersBlock/waitingPagePlayersBlock.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50846 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50812 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50828 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50852 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50846 [200]: GET /components/game/waitingPage/waitingPageCopyBlock/waitingPageCopyBlock.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50836 [200]: GET /components/message/message.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50856 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50846 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50836 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50852 [200]: GET /components/game/waitingPage/waitingPage.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50852 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50856 [200]: GET /components/game/game/gameplayPage.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50856 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50864 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50870 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50870 [200]: GET /components/messageLog/messageLog.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50870 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50864 [200]: GET /components/defaultCard/defaultCard.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50864 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50880 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50886 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50886 [200]: GET /components/game/game/widgetContainerAskPlayer/widgetContainerAskPlayer.css
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50888 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50896 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50886 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50898 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50902 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50880 [200]: GET /pages/home/home.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50898 [200]: GET /pages/choose-pseudo/choose-pseudo.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50888 [200]: GET /pages/games/games.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50896 [200]: GET /pages/enterLink/enterLink.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50912 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50902 [200]: GET /pages/game/game.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50880 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50898 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50888 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50896 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50902 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50912 [200]: GET /pages/gameCodeError/gameCodeError.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50912 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50916 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50916 [200]: GET /src/websocket/connection.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50916 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50920 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50920 [200]: GET /pages/home/home.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50920 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50926 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50926 [200]: GET /pages/games/games.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50926 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50940 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50940 [200]: GET /pages/enterLink/enterLink.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50940 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50956 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50956 [200]: GET /pages/choose-pseudo/choose-pseudo.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50956 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50966 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50976 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50990 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51006 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51022 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51022 [200]: GET /pages/game/game.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51026 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51022 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51034 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51044 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51044 [200]: GET /pages/gameCodeError/gameCodeError.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51044 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50966 [200]: GET /pages/loading/loading.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50966 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50976 [200]: GET /src/controller/game/dataStorage.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50990 [200]: GET /components/game/game/gameplayPage.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51006 [200]: GET /src/controller/game/game.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51034 [200]: GET /src/controller/error.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51026 [200]: GET /src/controller/game/messages.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51046 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50976 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:50990 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51006 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51034 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51026 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51046 [200]: GET /pages/loading/loading.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51046 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51060 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51074 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51074 [200]: GET /src/controller/game/dataStorage.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51060 [200]: GET /components/game/game/gameplayPage.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51074 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51060 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51082 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51082 [200]: GET /src/controller/game/game.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51082 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51094 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51102 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51094 [200]: GET /src/controller/game/actions.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51102 [200]: GET /src/helpers/copy.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51094 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51102 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51108 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51108 [200]: GET /src/controller/game/louancher.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51108 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51110 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51110 [200]: GET /src/controller/game/messages.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51110 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51120 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51120 [200]: GET /src/controller/error.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51120 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51130 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51130 [200]: GET /src/controller/game/actions.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51130 Closing
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51138 Accepted
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51138 [200]: GET /src/helpers/copy.js
+[Mon Mar 16 15:28:42 2026] 127.0.0.1:51138 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51150 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51160 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51174 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51182 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51150 [200]: GET /components/game/waitingPage/waitingPagePlayersBlock/waitingPagePlayersBlock.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51160 [200]: GET /components/game/waitingPage/waitingPageCopyBlock/waitingPageCopyBlock.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51174 [200]: GET /components/game/game/widgetContainerAskPlayer/widgetContainerAskPlayer.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51190 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51182 [200]: GET /components/button/button.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51190 [200]: GET /components/header/header.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51150 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51160 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51174 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51182 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51190 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51206 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51206 [200]: GET /src/helpers/api.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51206 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51214 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51230 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51214 [200]: GET /components/game/waitingPage/waitingPage.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51230 [200]: GET /components/errorContainer/errorContainer.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51214 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51230 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51240 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51240 [200]: GET /src/controller/game/louancher.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51240 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51252 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51268 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51252 [200]: GET /components/game/waitingPage/waitingPageCopyBlock/waitingPageCopyBlock.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51268 [200]: GET /components/game/waitingPage/waitingPagePlayersBlock/waitingPagePlayersBlock.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51252 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51268 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51270 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51270 [200]: GET /components/game/game/widgetContainerAskPlayer/widgetContainerAskPlayer.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51270 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51274 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51274 [200]: GET /components/button/button.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51274 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51286 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51296 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51286 [200]: GET /components/header/header.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51296 [200]: GET /components/defaultCard/defaultCard.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51286 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51296 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51306 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51306 [200]: GET /src/helpers/api.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51306 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51312 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51312 [200]: GET /components/game/waitingPage/waitingPage.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51312 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51324 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51338 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51354 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51364 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51380 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51324 [200]: GET /components/game/game/identityContainer/identityContainer.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51324 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51338 [200]: GET /gameData.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51338 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51354 [200]: GET /components/game/game/statsValues/statsValues.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51354 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51386 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51386 [200]: GET /components/errorContainer/errorContainer.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51386 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51364 [200]: GET /components/message/message.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51364 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51380 [200]: GET /components/messageLog/messageLog.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51380 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51402 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51402 [200]: GET /components/defaultCard/defaultCard.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51402 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51406 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51406 [200]: GET /components/game/game/identityContainer/identityContainer.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51406 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51422 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51422 [200]: GET /components/playerCard/playerCard.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51422 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51424 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51428 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51428 [200]: GET /gameData.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51428 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51424 [200]: GET /components/game/game/statsValues/statsValues.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51424 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51442 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51442 [200]: GET /components/message/message.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51442 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51454 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51454 [200]: GET /components/messageLog/messageLog.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51454 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51458 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51458 [200]: GET /components/playerCard/playerCard.js
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51458 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51468 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51468 [200]: GET /assets/logo.svg
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51468 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51484 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51484 [200]: GET /assets/link.svg
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51484 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51490 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51498 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51508 Accepted
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51508 [200]: GET /assets/right-arrow-dark.svg
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51508 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51498 [200]: GET /assets/room.svg
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51490 [200]: GET /assets/right-arrow.svg
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51498 Closing
+[Mon Mar 16 15:28:43 2026] 127.0.0.1:51490 Closing
+[Mon Mar 16 15:28:45 2026] 127.0.0.1:51518 Accepted
+[Mon Mar 16 15:28:45 2026] 127.0.0.1:51534 Accepted
+[Mon Mar 16 15:28:45 2026] 127.0.0.1:51544 Accepted
+[Mon Mar 16 15:28:45 2026] 127.0.0.1:51560 Accepted
+[Mon Mar 16 15:28:45 2026] 127.0.0.1:51564 Accepted
+[Mon Mar 16 15:28:45 2026] 127.0.0.1:51518 [200]: GET /assets/logo.svg
+[Mon Mar 16 15:28:45 2026] 127.0.0.1:51518 Closing
+[Mon Mar 16 15:28:45 2026] 127.0.0.1:51534 [200]: GET /assets/link.svg
+[Mon Mar 16 15:28:45 2026] 127.0.0.1:51544 [200]: GET /assets/right-arrow.svg
+[Mon Mar 16 15:28:45 2026] 127.0.0.1:51560 [200]: GET /assets/room.svg
+[Mon Mar 16 15:28:45 2026] 127.0.0.1:51534 Closing
+[Mon Mar 16 15:28:45 2026] 127.0.0.1:51544 Closing
+[Mon Mar 16 15:28:45 2026] 127.0.0.1:51560 Closing
+[Mon Mar 16 15:28:45 2026] 127.0.0.1:51564 [200]: GET /assets/right-arrow-dark.svg
+[Mon Mar 16 15:28:45 2026] 127.0.0.1:51564 Closing
+[Mon Mar 16 15:28:46 2026] 127.0.0.1:51578 Accepted
+[Mon Mar 16 15:28:46 2026] 127.0.0.1:51578 [200]: GET /assets/logo.svg
+[Mon Mar 16 15:28:46 2026] 127.0.0.1:51578 Closing
+make: *** [Makefile:4: init] Terminated

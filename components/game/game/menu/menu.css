@@ -1,0 +1,129 @@
+#gameplayPage {
+  .menu {
+    display: none;
+    gap: 30px;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    top: 0;
+    width: 20%;
+    background: #1a313f;
+    flex-direction: column;
+    align-items: start;
+    padding: 5% 25px;
+    box-sizing: border-box;
+    .actions {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+    .exitButton {
+      position: absolute;
+      width: calc(100% - 50px);
+      left: 25px;
+      bottom: 25px;
+      text-align: center !important;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      border-radius: 10px;
+      background: red;
+      color: white;
+      font-weight: bold;
+      a {
+        color: white;
+        font-size: 16px;
+      }
+    }
+
+    h2 {
+      color: white;
+      text-transform: capitalize;
+      font-size: 27px;
+      margin-block: 10px;
+      font-weight: bold;
+    }
+    hr {
+      width: 100%;
+      margin-block: 0;
+      height: 0;
+      border: 0.2px solid #ffffff;
+    }
+
+    .settings {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      > div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        span {
+          margin-block: 10px;
+          color: white;
+          font-size: 16px;
+        }
+        select {
+          width: 100%;
+          height: 41px;
+          background: #ffffff26;
+          font-size: 16px;
+          color: #b8b8b8;
+          outline: 0;
+          border: 0;
+          border-radius: 11px;
+        }
+      }
+    }
+    .players {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      background: #ffffff26;
+      border-radius: 18px;
+      padding: 20px 10px;
+      box-sizing: border-box;
+      color: white;
+      height: 100%;
+      h3 {
+    margin-block: 0px 19px;
+      }
+      > * {
+        color: white;
+      }
+    }
+  }
+  .menu.open {
+    display: flex;
+    animation: menuAppear 1s ease-in-out;
+  }
+  .menu.close {
+    display: flex;
+    animation: menuDisappear 1s ease-in-out;
+  }
+}
+
+@keyframes menuAppear {
+  from {
+    opacity: 0;
+    transform: translate(100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+@keyframes menuDisappear {
+  from {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(100%, 0);
+  }
+}

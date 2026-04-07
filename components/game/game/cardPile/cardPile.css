@@ -1,0 +1,56 @@
+.gameplayPile {
+  width: 80px;
+  height: fit-content;
+  position: absolute;
+  left: 15px;
+  top: 52%;
+  transform: translateY(100%);
+  cursor: pointer;
+  img {
+    width: 100%;
+  }
+  .actionLabel,.pileLabel{
+    color: white;
+    font-size: 16px;
+    white-space: nowrap;
+    border-radius: 6px;
+  }
+  .actionLabel{
+
+    color: white;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    transform: translateY(-100%);
+    background: #2f3237;
+    padding: 10px;
+  }
+  .actionLabel::after{
+
+    color: var(--tertiary);
+    content: "";
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background: #2f3237;
+    bottom: -7px;
+    left: 15px;
+    transform: rotate(45deg);
+  }
+  .pileLabel{
+
+    color: white;
+  }
+}
+.gameplayPile#pile-type-discardDeck {
+  left: 15px;
+    top: 46%;
+  transform: translateY(100%);
+}
+
+.gameplayPile#pile-type-deck {
+  
+    left: 15px;
+    top: 50%;
+    transform: translateY(-100%);
+}

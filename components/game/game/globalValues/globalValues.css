@@ -1,0 +1,14 @@
+#gameplayPage {
+  .gameplayGlobalValues {
+    position: absolute;
+    left: 232px;
+    top: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    span{
+        color:white !important
+    }
+  }
+}

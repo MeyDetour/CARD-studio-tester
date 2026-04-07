@@ -1,0 +1,96 @@
+#gameplayPage {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, #006243 0%, #007c52 50%, #00513a 100%), #fff;
+  background:
+    linear-gradient(
+      135deg,
+      color(display-p3 0 0.3765 0.2706) 0%,
+      color(display-p3 0 0.4784 0.3333) 50%,
+      color(display-p3 0 0.3098 0.2314) 100%
+    ),
+    color(display-p3 1 1 1);
+
+  .gameplayMessagerie-container {
+    position: absolute;
+    display: none;
+    right: 15px;
+    top: 65px;
+    width: 40%;
+    z-index: 5;
+    height: 537px;
+    .chat {
+      .wrapper {
+        padding: 10px !important;
+        width: 100% !important;
+      }
+      .wrapper::-webkit-scrollbar {
+        display: none;
+      }
+      .messageRight {
+        padding: 0 !important;
+      }
+      .message {
+        & > div {
+          p {
+            padding: 6px 22px;
+          }
+        }
+      }
+      .messageLog {
+        p {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+  
+  .headerButtons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+    .gameplayChatButton,
+    .gameplayMenuButton {
+      aspect-ratio: 1 / 1;
+      padding: 9px;
+      text-align: center;
+      position: relative;
+      border-radius: 50%;
+      background: #1a313f;
+      border: 1px solid #45556c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+    .gameplayChatButton.newMessage::after {
+      content: "!";
+      position: absolute;
+      bottom: -9px;
+      left: -6px;
+      width: 20px;
+      height: 20px;
+      background: red;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+    }
+  }
+  .currentPlayer {
+    position: relative;
+  }
+ 
+}
