@@ -20,7 +20,7 @@ export function playerCard(admin, player) {
          <div class="playerCard">
               ${
                 player.skin ? (
-                  `<div class="skin-container"><img src="/assets/images/spooky-skins/${player.skin}.png" alt="Skin de ${player.pseudo}" class="player-skin"></div>`
+                  `<div class="skin-container"><img src="/assets/images/spooky-skins/${player.skin.name}.png" alt="Skin de ${player.pseudo}" class="player-skin"></div>`
                 ) : (
                   `<div class="letter">${player.pseudo.charAt(0)}</div>`
                 )

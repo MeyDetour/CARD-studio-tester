@@ -1,14 +1,10 @@
-import { button } from "../../button/button.js";
-import { defaultCard } from "../../defaultCard/defaultCard.js";
-import { gameplay_identityContainer } from "./identityContainer/identityContainer.js";
+import { button } from "../../button/button.js"; 
 import { reloadComposant_gameplayPlayers } from "./players/players.js";
 import {
   getCurrentPlayer,
   getGameData,
 } from "../../../src/controller/game/dataStorage.js";
 import { displayError } from "../../../src/controller/error.js";
-import { removeMessageNotification } from "../../../src/controller/game/messages.js";
-import { messaegerieComponent } from "../../messagerie/messagerie.js";
 import { gameplay_messageOfLoading } from "./messageOfLoading/messageOfLoading.js";
 import { gameplay_displayAllPlayers } from "./players/players.js";
 import {
@@ -68,63 +64,81 @@ export default function gameplayPage() {
   );
 
   return /*html */ `
-        <div id="gameplayPage">
-         ${gameplay_messageOfLoading(gameData.data.logs)}
-         ${gameplay_globalValues({ ...gameData.data, ...gameData.data.globalValueStatic })}
-         ${gameplay_handdeck(params.displayHandDeck, handDeck, cardList)}
-         ${gameplay_spectatorBanniere(currentPlayer)}
-         
-         ${gameplay_cardPile(
-           cardParams,
-           actionOnDeck
-             ? {
-                 playerId: currentPlayer.id,
-                 roomId: gameData.roomId,
-                 action: actionOnDeck ? actionOnDeck.name : null,
-                 actionType: actionOnDeck
-                   ? actionOnDeck.type || "default"
-                   : "default",
-               }
-             : null,
-           "deck",
-           "Pioche",
-         )}
-         ${gameplay_cardPile(
-           cardParams,
-           actionOnDiscardDeck
-             ? {
-                 playerId: currentPlayer.id,
-                 roomId: gameData.roomId,
-                 action: actionOnDiscardDeck ? actionOnDiscardDeck.name : null,
-                 actionType: actionOnDiscardDeck
-                   ? actionOnDiscardDeck.type || "default"
-                   : "default",
-               }
-             : null,
-           "discardDeck",
-           "Défausse",
-         )}
-         
-         
-         ${gameplay_actionsButtons(
-           playerActions.filter(
-             (a) => !a.actionOnDeck && !a.actionOnDiscardDeck,
-           ),
-           gameData.data.currentPlayerPosition.value === currentPlayer.position,
-           currentPlayer,
-           gameData.roomId,
-         )}
-            ${gameplay_menu(gameData.data.players, currentPlayer)}
-                   
-            ${params.displayChat ? `<div class="gameplayMessagerie-container"> </div>` : ""}
-            <div class="headerButtons">
-                    ${params.displayChat ? button("chat", null, null, "gamePlayeToggleMessagerie", null, "whiteButton gameplayChatButton") : ""}
-                    ${button("menu", null, null, "toggleGameplayMenu", null, "whiteButton gameplayMenuButton")}
-            </div>
+  <div class="statGamePage">
+        <div class="row">
+          <div class="left">
           
-            ${gameplay_displayAllPlayers(gameData, currentPlayer)}  
-
+          
+          </div>
+          <div class="right">
+          
+            <div class="statEventsDemonsWithValueSection">
+              <div class="statEventsDemonsWithValueSection-navigation">
+                 <span>Value</span>
+                 <span>Events</span>
+                 <span>Demons</span>
+              </div>
+              <div class="">
+              </div>
+            </div>
             
+            <div id="gameplayPage">
+            ${gameplay_messageOfLoading(gameData.data.logs)}
+            ${gameplay_globalValues({ ...gameData.data, ...gameData.data.globalValueStatic })}
+            ${gameplay_handdeck(params.displayHandDeck, handDeck, cardList)}
+            ${gameplay_spectatorBanniere(currentPlayer)}
+            
+            ${gameplay_cardPile(
+              cardParams,
+              actionOnDeck
+                ? {
+                    playerId: currentPlayer.id,
+                    roomId: gameData.roomId,
+                    action: actionOnDeck ? actionOnDeck.name : null,
+                    actionType: actionOnDeck
+                      ? actionOnDeck.type || "default"
+                      : "default",
+                  }
+                : null,
+              "deck",
+              "Pioche",
+            )}
+            ${gameplay_cardPile(
+              cardParams,
+              actionOnDiscardDeck
+                ? {
+                    playerId: currentPlayer.id,
+                    roomId: gameData.roomId,
+                    action: actionOnDiscardDeck ? actionOnDiscardDeck.name : null,
+                    actionType: actionOnDiscardDeck
+                      ? actionOnDiscardDeck.type || "default"
+                      : "default",
+                  }
+                : null,
+              "discardDeck",
+              "Défausse",
+            )}
+            
+            
+            ${gameplay_actionsButtons(
+              playerActions.filter(
+                (a) => !a.actionOnDeck && !a.actionOnDiscardDeck,
+              ),
+              gameData.data.currentPlayerPosition.value === currentPlayer.position,
+              currentPlayer,
+              gameData.roomId,
+            )}
+                ${gameplay_menu(gameData.data.players, currentPlayer)}
+                        
+                <div class="headerButtons">
+                  ${button("menu", null, null, "toggleGameplayMenu", null, "whiteButton gameplayMenuButton")}
+                </div>
+              
+                ${gameplay_displayAllPlayers(gameData, currentPlayer)}  
+
+                
+            </div>
+          </div>
         </div>
     `;
 }
@@ -213,41 +227,4 @@ export function reloadComposant_gameplayPage() {
     "discardDeck",
     "Défausse",
   );
-}
-// ===============RELOAD PLAYERS==========
-
-// ===============MESSAGERIE=============
-export function gamePlayeToggleMessagerie() {
-  if (
-    document.querySelector("#gameplayPage .gameplayMessagerie-container .chat")
-  ) {
-    hideGamePlayMessagerie();
-  } else {
-    console.log("add messagerie");
-    hideGameplayMenu();
-    removeMessageNotification();
-    reloadComposant_messagerie_gameplayPage();
-  }
-}
-window.gamePlayeToggleMessagerie = gamePlayeToggleMessagerie;
-
-export function hideGamePlayMessagerie() {
-  console.log("remove messagerie");
-  let container = document.querySelector(
-    "#gameplayPage .gameplayMessagerie-container",
-  );
-  if (container) {
-    container.style.display = "none";
-    container.innerHTML = "";
-  }
-}
-
-export function reloadComposant_messagerie_gameplayPage() {
-  let content = document.querySelector(
-    "#gameplayPage .gameplayMessagerie-container",
-  );
-  if (content) {
-    content.style.display = "flex";
-    content.innerHTML = messaegerieComponent();
-  }
-}
+} 

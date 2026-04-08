@@ -19,6 +19,7 @@ import {
   getGameData
 } from "../../src/controller/game/dataStorage.js";
 import { incrementePlayerCount } from "../../src/controller/game/gameStatistics.js";
+import { loadRoute } from "../../src/router/router.js";
 
 export function gamePage(params = {}) {
   let currentPlayer = getCurrentPlayer();
@@ -58,8 +59,7 @@ export function reloadComposant_gamePage() {
     return;
   }
   if (gameData.data.state.value == "waitingPlayers") {
-    console.log("reload waiting players");
-    reloadComposant_waitingPage();
+    loadRoute("test-config");
   }
   if (gameData.data.state.value == "inProgress") {
     console.log("reload in progress");

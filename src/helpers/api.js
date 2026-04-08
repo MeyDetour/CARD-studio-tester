@@ -1,5 +1,5 @@
-const BASE_URL = "https://card-studio-api.genos-center.com/";
-
+ import { env } from "../../env.js";
+ 
 export async function apiClient(
   path,
   body,
@@ -20,8 +20,8 @@ export async function apiClient(
   if (formData) {
     config.body = formData;
     delete config.headers["Content-Type"];
-  } 
-  const response = await fetch(`${BASE_URL}${path}`, config);
+  }
+  const response = await fetch(`${ env.CARD_STUDIO_API_URL}${path}`, config);
 
   if (!response.ok) {
     let message = "Erreur API";
@@ -33,9 +33,10 @@ export async function apiClient(
     }
 
     if (response.status === 401) {
-      if (path && path.toLowerCase().includes("api/login_check")) { 
+      if (path && path.toLowerCase().includes("api/login_check")) {
         throw new Error("Email ou mot de passe invalide");
       }
+      
       throw new Error("UNAUTHORIZED");
     }
 

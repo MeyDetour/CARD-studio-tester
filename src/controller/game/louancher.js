@@ -1,17 +1,17 @@
-import { navigateTo } from "../../router/router.js";
-import { socket } from "../../websocket/connection.js";
+import { players } from "../../main.js";
+import { navigateTo } from "../../router/router.js"; 
 import { deleteAllGameVariablesSaved } from "./dataStorage.js";
-export function startGame(params) {
+export function startGame() {
   console.log("=========START ROOM=======");  
- 
+  let socket = players[0]?.socket;
   if (socket) {
     socket.emit("startGame");
   } else {
     console.warn("Dont find socket to start game");
   }
 }
-export function replay(params){
-  
+export function replay(){
+  let socket = players[0]?.socket;
   deleteAllGameVariablesSaved()
   if (socket){
     socket.emit("replayGame");
@@ -19,13 +19,7 @@ export function replay(params){
     console.warn("Dont find socket to replay game");
   }
 }
-
-export function joinRoom(gameData) { 
-  navigateTo({
-    path: "/game",
-    roomId: gameData.roomId
-  });
-}
+ 
 
 window.startGame = startGame;
 window.replay = replay;

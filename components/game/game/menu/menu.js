@@ -1,8 +1,7 @@
 import { button } from "../../../button/button.js";
 import { storeCardSort,getCardSort } from "../../../../src/controller/game/dataStorage.js";
 import {autoReloadComposant_gameplayHanddeck} from "../handdeck/handdeck.js";
-import { hideGamePlayMessagerie } from "../gameplayPage.js";
-
+ 
 
 export function gameplay_menu(players, currentPlayer) {
   let sort = getCardSort()
@@ -71,8 +70,7 @@ export function toggleGameplayMenu() {
   if (menuContainer) {
     if (menuContainer.style.display === "flex") {
       hideGameplayMenu()
-    } else {
-      hideGamePlayMessagerie()
+    } else { 
       menuContainer.style.display = "flex";
       menuContainer.classList.add("open");
       setTimeout(() => {

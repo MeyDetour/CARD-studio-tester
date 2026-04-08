@@ -22,27 +22,39 @@ body {
   user-select: none;
 }
 h1 {
-  color: var(--dark-blue);
-  margin-block: 10px;
-  font-weight: 400;
+  background: linear-gradient(90deg, #a600ff 0%, #db00e6 100%);
+  font-weight: bold;
+  font-size: 83px;
+  font-family: "Arimo";
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 h2 {
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 28px; /* 155.556% */
-  letter-spacing: 0.9px;
-  text-transform: uppercase;
+  background: linear-gradient(90deg, #a600ff 0%, #db00e6 100%);
+
+    font-weight: bold;
+    font-size: 29px;
+    margin: 0;
+  font-family: "Arimo";
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-h3 {
-  text-transform: uppercase;
-  font-weight: 100;
-  font-size: 20px;
-  color: var(--secondary);
+h4{
+
+    margin: 0;
 }
+
+p {
+  text-align: center;
+  color: #475567;
+}
+
 span {
   color: var(--tertiary);
 }
+
 #content {
   width: 100vw;
   height: 100vh;
@@ -52,48 +64,6 @@ span {
 #error {
   color: red;
   font-size: 15px;
-}
-
-.box {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 30%;
-
-  height: fit-content;
-  gap: 32px;
-  padding: 25px;
-  transform: translate(-50%, -50%);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 16px;
-  border: 0.8px solid var(--box-border);
-  background: var(--box-background);
-  input {
-    box-sizing: border-box;
-    width: 100%;
-    border-radius: 10px;
-    border: 0.8px solid var(--box-border);
-    background: #fff;
-    padding: 16px 10px;
-    color: grey;
-    font-size: 19px;
-  }
-
-  .linkToCopy {
-    box-sizing: border-box;
-    width: 100%;
-    border-radius: 10px;
-    border: 0.8px solid var(--box-border);
-    background: #fff;
-    padding: 16px 10px;
-    color: grey;
-    font-size: 19px;
-    cursor: pointer;
-  }
 }
 
 #error-container {

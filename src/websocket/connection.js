@@ -1,27 +1,34 @@
- 
-import { gameManagementListen } from "./game/management.js";
-import { gameMessagerieListen } from "./game/messagerie.js";
+import { gameManagementListen } from "./game/management.js"; 
 import { websocketErrorListen } from "./error/error.js";
 import { gameUpdatesListen } from "./game/updates.js";
 import { gameConnectionsListen } from "./game/connections.js";
 import { gameActionsListen } from "./game/action.js";
 import { env } from "../../env.js";
-export let socket = null;
-export async function connectSocket() {
-  if (socket) return;
-  socket = io(env.CARD_STUDIO_WEBSOCKET_URL);
+import { getGameId, getRoomId, getToken } from "../controller/game/dataStorage.js";
+import { getRandomSkin } from "../controller/game/players.js";
+import { players } from "../main.js";
+import { apiClient } from "../helpers/api.js";
+  
+export async function connectSocket(gameInDB={}) {
+  console.log("TRY TO CONNECT SOCKET");
+ 
+ 
+  let socket = io(env.CARD_STUDIO_WEBSOCKET_URL);
+  
 
-  console.log("CONNECTED TO SOCKET SERVER");
-  // expose on window so other legacy code can access it
-  window.socket = socket;
-
+  if (players.length === 0) {
+    socket.emit("createRoom", {
+      gameInDB,
+      pseudo: "Player 1",
+      skin: getRandomSkin(),
+      isTest: true,
+    });
+  }else{
+      socket.emit("joinRoom", { roomId : getRoomId(), pseudo : "Player "+(players.length+1),skin : getRandomSkin() });
+  }
   //===============GAME MANAGEMENT=============
   gameManagementListen(socket);
-
-  //===============MESSAGERIE=============
-
-  gameMessagerieListen(socket);
-
+ 
   //===============ERROR=============
 
   websocketErrorListen(socket);
@@ -36,3 +43,20 @@ export async function connectSocket() {
 
   gameActionsListen(socket);
 }
+window.connectSocket = connectSocket;
+
+export function disconnectSocket(parmas) {
+  if (!players) {
+    console.warn("No players found to disconnect.");
+    return;
+  }
+  let player = players[parmas.index];
+  if (player.socket && player.socket.connected) {
+    player.socket.disconnect();
+    console.log("Socket disconnected successfully.");
+    players.splice(parmas.index, 1); // Remove the player from the array
+  } else {
+    console.warn("Socket is already disconnected or was never connected.");
+  }
+}
+window.disconnectSocket = disconnectSocket;

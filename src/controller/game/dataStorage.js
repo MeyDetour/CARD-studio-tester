@@ -54,6 +54,35 @@ export function deletePlayerPlayedGame(){
   localStorage.setItem("playerPlayedGame", JSON.stringify([]));
 }
 
+export function getToken(){
+  return localStorage.getItem("jwt") || null;
+}
+export function setToken(token){
+  localStorage.setItem("jwt", token);
+}
+
+export function getGameId(){
+  return localStorage.getItem("gameId") || null;
+}
+export function setGameId(gameId){
+  localStorage.setItem("gameId", gameId);
+}
+export function deleteGameId(){
+  localStorage.removeItem("gameId");
+}
+export function deleteToken(){
+  localStorage.removeItem("jwt");
+}
+
+export function storeView(){
+
+}
+export function getView(){
+  return localStorage.getItem("view") || {
+    statEventsDemonsWithValue: "events",
+
+  };
+}
 
 export function deleteAllGameVariablesSaved(){
   storeRoomId("")
