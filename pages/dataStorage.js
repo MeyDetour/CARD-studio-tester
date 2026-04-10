@@ -1,5 +1,7 @@
  
- 
+export function getPlayerWhoHasToPlayer() {
+  return window.currentPlayer || null;
+}
 export function storeGameData(gameData) {
   //console.log("ACTION : STORED GAME DATA");
   window.gameData = gameData;
@@ -68,14 +70,13 @@ export function deleteToken(){
   localStorage.removeItem("jwt");
 }
 
-
 export function storeView(){
 
 }
 export function getView(){
   return localStorage.getItem("view") || {
     statEventsDemonsWithValue: "events",
-    playerView: 1,    
+
   };
 }
 

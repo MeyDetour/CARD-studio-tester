@@ -13,16 +13,17 @@ import {
   loosePage,
   reloadComposant_loosePage,
 } from "../../components/game/loosePage/loosePage.js";
+import { getPlayerOfCurrentView } from "../../../src/controller/game/players.js";
+
 import { displayError } from "../../src/controller/error.js";
-import {
-  getCurrentPlayer,
+import { 
   getGameData
 } from "../../src/controller/game/dataStorage.js";
 import { incrementePlayerCount } from "../../src/controller/game/gameStatistics.js";
 import { loadRoute } from "../../src/router/router.js";
 
 export function gamePage(params = {}) {
-  let currentPlayer = getCurrentPlayer();
+  let currentPlayer = getPlayerOfCurrentView();
   let gameData = getGameData();
 
   if (!currentPlayer) {
@@ -51,7 +52,7 @@ export function gamePage(params = {}) {
 
 export function reloadComposant_gamePage() {
   let gameData = getGameData();
-  let currentPlayer = getCurrentPlayer();
+  let currentPlayer = getPlayerOfCurrentView();
 
   if (!gameData) {
     displayError("No game data found to display game");
@@ -59,7 +60,7 @@ export function reloadComposant_gamePage() {
     return;
   }
   if (gameData.data.state.value == "waitingPlayers") {
-    loadRoute("test-config");
+    loadRoute({path: "test-config"});
   }
   if (gameData.data.state.value == "inProgress") {
     console.log("reload in progress");

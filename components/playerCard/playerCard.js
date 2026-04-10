@@ -1,7 +1,8 @@
-import { getCurrentPlayer } from "../../src/controller/game/dataStorage.js";
+
+import { getPlayerWhoHasToPlayer } from "../../../src/controller/game/players.js";
 
 export function playerCard(admin, player) {
-  let currentPlayer = getCurrentPlayer();
+  let currentPlayer = getPlayerWhoHasToPlayer();
 
   if (!player) {
     console.warn("please provide player to playerCard");

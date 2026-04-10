@@ -1,24 +1,145 @@
 .statGamePage {
   width: 100%;
   height: 100%;
-  .row {
-    width: 100%;
-    height: 100%;
+
+    display: flex;
+    flex-direction: column; 
+  background-color: #f5f3f0;
+  .titleContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    .left {
-      width: 30%;
-      height: 100%;
+    align-items: center;
+    justify-content: start;
+    h5 {
+      margin: 0;
     }
+  }
+
+  .head {
+    padding: 20px;
+    padding-top: 30px;
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    background: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .boxContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    width: 100%;
+    height: fit-content;
+    background: white;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 16px 18px;
+    gap: 13px;
+    box-sizing: border-box;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: start;
+    width: 100%;
+    height: 100%;
+    .left {
+      padding: 24px;
+      box-sizing: border-box;
+      height: 100%;
+      gap: 16px;
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      select {
+        width: 100%;
+        border: 0;
+        padding: 15px 10px;
+        border-radius: 10px;
+        outline: 0;
+      }
+
+      .playerSection {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        .wrapper {
+          .playerStat {
+            box-sizing: border-box;
+            background: #f5f5fd;
+            border: 1px solid blue;
+            border-radius: 13px;
+            padding: 13px;
+            text-align: start;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            .statWrapper {
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+              font-size: 15px;
+              justify-content: space-between;
+              text-align: start;
+              span {
+                width: 45%;
+              }
+            }
+          }
+        }
+      }
+    }
+
     .right {
       width: 73%;
       height: 100%;
+      padding: 24px;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
+      padding-left: 0;
+      gap: 15px;
+      .statEventsDemonsWithValueSection {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        .statEventsDemonsWithValueSection-navigation {
+          display: flex;
+          flex-direction: row;
+          justify-content: start;
+          align-items: center;
+          gap: 15px;
+          background: white;
+          width: fit-content;
+          padding: 5px;
+          border-radius: 19px;
+          span {
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            gap: 5px;
+            font-size: 17px;
+            color: #3b3b3b;
+            padding: 7px 16px;
+            border-radius: 25px;
+          }
+        }
+      }
       #gameplayPage {
-        width: 50%;
-        height: 50%;
+        width: 100%;
+
+                height: 100%;
+                border-radius: 15px; 
         overflow: hidden;
         background:
           linear-gradient(135deg, #006243 0%, #007c52 50%, #00513a 100%), #fff;
@@ -113,4 +234,14 @@
       }
     }
   }
+}
+
+.statGamePage::after {
+  content: "";
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: linear-gradient(90deg, #a600ff 0%, #db00e6 50%, #a600ff 100%);
 }

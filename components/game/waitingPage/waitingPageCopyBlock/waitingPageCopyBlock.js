@@ -1,10 +1,11 @@
-import {
-  getCurrentPlayer,
+import { 
   getGameData,
 } from "../../../../src/controller/game/dataStorage.js";
+import { getPlayerWhoHasToPlayer } from "../../../../src/controller/game/players.js";
+
 import { button } from "../../../button/button.js";
 export function waitingPageCopyBlock() {
-  let currentPlayer = getCurrentPlayer();
+  let currentPlayer = getPlayerWhoHasToPlayer();
   let gameData = getGameData();
   return /*html*/ `
  

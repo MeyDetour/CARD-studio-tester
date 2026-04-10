@@ -48,12 +48,17 @@ const disconnectAndReconnect = () => {
     // On ferme la fenêtre de test
     deleteToken();
     deleteGameId();
-    window.close();
+    loadRoute({path:"/page-401"});
+    //window.close();
   } else {
     // Si la fenêtre a été ouverte seule, on redirige juste
     alert("Session expirée, veuillez repasser par Card Studio.");
   }
 };
+const redirectToCardStudio = () => {
+  window.location.href = env.CARD_STUDIO_FRONT_END_URL;
+}
+window.redirectToCardStudio = redirectToCardStudio;
 const handleMessage = (event) => {
     if (token || gameId) return;
     if (event.origin !== env.CARD_STUDIO_FRONT_END_URL) {
@@ -90,7 +95,7 @@ const initApp = async () => {
     return
   }
 
-  loadRoute("/");
+  loadRoute({path:"/"});
 };
 
 if (document.readyState === "loading") {

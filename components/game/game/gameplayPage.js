@@ -1,9 +1,10 @@
-import { button } from "../../button/button.js"; 
+import { button } from "../../button/button.js";
 import { reloadComposant_gameplayPlayers } from "./players/players.js";
 import {
-  getCurrentPlayer,
   getGameData,
+  getView,
 } from "../../../src/controller/game/dataStorage.js";
+import { getPlayerStat } from "../../../src/controller/game/players.js";
 import { displayError } from "../../../src/controller/error.js";
 import { gameplay_messageOfLoading } from "./messageOfLoading/messageOfLoading.js";
 import { gameplay_displayAllPlayers } from "./players/players.js";
@@ -20,15 +21,29 @@ import {
   gameplay_globalValues,
   reloadComposant_gameplayGlobalValues,
 } from "./globalValues/globalValues.js";
-
+import {
+  getPlayerOfCurrentView,
+  getPlayerWhoHasToPlayer,
+} from "../../../src/controller/game/players.js";
 import {
   gameplay_cardPile,
   reloadComposant_gameplayCardPile,
 } from "./cardPile/cardPile.js";
-import { reloadComposant_gameplaySpectatorBanniere , gameplay_spectatorBanniere} from "./spectatorBanniere/spectatorBanniere.js";
+import {
+  reloadComposant_gameplaySpectatorBanniere,
+  gameplay_spectatorBanniere,
+} from "./spectatorBanniere/spectatorBanniere.js";
+import { players } from "../../../src/main.js";
 
 export default function gameplayPage() {
-  let currentPlayer = getCurrentPlayer();
+  if (!players) {
+    displayError("No players found to display game");
+    return "";
+  }
+  const excludeFieldOfPlayer = ["socket", "handDeck", "socketID"];
+
+  let view = getView();
+  let currentPlayer = getPlayerOfCurrentView();
   let gameData = getGameData();
   if (!gameData) {
     displayError("No game data found to display game");
@@ -65,11 +80,75 @@ export default function gameplayPage() {
 
   return /*html */ `
   <div class="statGamePage">
+    <div class="head" >
+              <h2>${gameData.roomInDb.name}</h2> 
+          </div> 
         <div class="row">
-          <div class="left">
-          
-          
+        <div class="left">
+          <div class="boxContainer">
+                <div class="titleContainer">
+                    <img>
+                    <h5>
+                        Point de vue
+                    </h5> 
+                </div>
+                    <select name="pointOfView" id="pointOfView"" onchange="changeCardSort(event)">
+                    ${players
+                      .map(
+                        (player, index) => /*html*/ `
+                      <option ${index === view.playerView ? "selected" : ""} value="${index}">${player.pseudo}</option>
+                    `,
+                      )
+                      .join("")} 
+                  </select>
           </div>
+            <div class="boxContainer playerSection">
+              <div class="titleContainer">
+                    <img>
+                    <h4>Joueurs
+                    </h4> 
+                </div>
+
+                <div class="wrapper">
+                    ${players
+                      .map(
+                        (player, index) => /*html*/ `
+                        <div class="playerStat">
+                                <div class="titleContainer"><img><h5>${player.pseudo}</h5></div>
+                                <div class="statWrapper">
+                                  ${getPlayerStat(player,gameData)
+                                    .map((stat) => (`
+                                      <span>
+                                        ${stat.name} : ${stat.value}
+                                      </span>
+                                   ` ))
+                                    .join("")}  
+                                </div>
+                        </div>
+                                    
+                    `,
+                      )
+                      .join("")} 
+                  
+                        
+                    </div>
+                </div>
+                
+           
+                <div class="boxContainer">
+                    <div class="titleContainer">
+                          <img>
+                          <h4>
+                              Actions pour ${currentPlayer.pseudo}
+                            
+                          </h4> 
+                    </div>
+                        <div class="actionWrapper">
+                            <button>Piocher</button>
+                        </div> 
+                </div>
+                </div>
+         
           <div class="right">
           
             <div class="statEventsDemonsWithValueSection">
@@ -78,7 +157,7 @@ export default function gameplayPage() {
                  <span>Events</span>
                  <span>Demons</span>
               </div>
-              <div class="">
+              <div class="boxContainer">
               </div>
             </div>
             
@@ -109,7 +188,9 @@ export default function gameplayPage() {
                 ? {
                     playerId: currentPlayer.id,
                     roomId: gameData.roomId,
-                    action: actionOnDiscardDeck ? actionOnDiscardDeck.name : null,
+                    action: actionOnDiscardDeck
+                      ? actionOnDiscardDeck.name
+                      : null,
                     actionType: actionOnDiscardDeck
                       ? actionOnDiscardDeck.type || "default"
                       : "default",
@@ -124,7 +205,8 @@ export default function gameplayPage() {
               playerActions.filter(
                 (a) => !a.actionOnDeck && !a.actionOnDiscardDeck,
               ),
-              gameData.data.currentPlayerPosition.value === currentPlayer.position,
+              gameData.data.currentPlayerPosition.value ===
+                currentPlayer.position,
               currentPlayer,
               gameData.roomId,
             )}
@@ -165,7 +247,7 @@ export function reloadComposant_gameplayPage() {
     return;
   }
 
-  let currentPlayer = getCurrentPlayer();
+  let currentPlayer = getPlayerWhoHasToPlayer();
 
   if (!currentPlayer) {
     displayError("No current player found to display game");
@@ -227,4 +309,4 @@ export function reloadComposant_gameplayPage() {
     "discardDeck",
     "Défausse",
   );
-} 
+}

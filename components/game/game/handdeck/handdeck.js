@@ -1,12 +1,11 @@
-import { defaultCard } from "../../../defaultCard/defaultCard.js";
+import { defaultCard } from "../../../defaultCard/defaultCard.js" ;
 import { customCard } from "../../../customCard/customCard.js";
-import {
-  getCurrentPlayer,
+import { 
   getGameData,
 } from "../../../../src/controller/game/dataStorage.js";
 import { displayError } from "../../../../src/controller/error.js";
 import { getCardSort } from "../../../../src/controller/game/dataStorage.js";
-import { isPassifPlayer } from "../../../../src/controller/game/players.js";
+import { isPassifPlayer , getPlayerWhoHasToPlayer } from "../../../../src/controller/game/players.js";
 
 
 // Separate component for the player's hand deck in the gameplay page
@@ -19,7 +18,7 @@ export function gameplay_handdeck(displayHandDeck, handDeck, cardList) {
   if (!handDeck || handDeck.length === 0) {
     return "";
   }
-  if (isPassifPlayer(getCurrentPlayer())) {
+  if (isPassifPlayer(getPlayerWhoHasToPlayer())) {
     return "";
   }
   let sort = getCardSort();
@@ -131,7 +130,7 @@ export function autoReloadComposant_gameplayHanddeck() {
     return;
   }
 
-  let currentPlayer = getCurrentPlayer();
+  let currentPlayer = getPlayerWhoHasToPlayer();
 
   if (!currentPlayer) {
     displayError("No current player found to display game");

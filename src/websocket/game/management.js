@@ -1,5 +1,4 @@
-import {
-  storeDataOfPlayer,
+import { 
   storeGameData,
 } from "../../controller/game/dataStorage.js";
 import { reloadComposant_gamePage } from "../../../pages/game/game.js"
@@ -19,8 +18,7 @@ export function gameManagementListen(socket) {
   });
   socket.on("playerWin", ({ gameData, player }) => {
     console.log("=========RECEIVE PLAYER WIN SIGNAL========");
-    storeGameData(gameData);
-    storeDataOfPlayer(player);
+    storeGameData(gameData); 
     reloadComposant_winPage();
   });
 }

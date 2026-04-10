@@ -1,10 +1,11 @@
 import { button } from "../../button/button.js";
-import {
-  getCurrentPlayer,
+import { getPlayerWhoHasToPlayer } from "../../../src/controller/game/players.js";
+
+import { 
   getGameData,
 } from "../../../src/controller/game/dataStorage.js";
 export function winPage() {
-  let currentPlayer = getCurrentPlayer();
+  let currentPlayer = getPlayerWhoHasToPlayer();
   let gameData = getGameData();
   if (!gameData) {
     displayError("No game data found to display win page");

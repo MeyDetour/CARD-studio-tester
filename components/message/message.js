@@ -1,9 +1,11 @@
-import { getCurrentPlayer } from "../../src/controller/game/dataStorage.js";
+
+import { getPlayerWhoHasToPlayer } from "../../../src/controller/game/players.js";
+
 import { messageLogComponent } from "../messageLog/messageLog.js";
 
 export function messageComponent(message) {
 
-let currentPlayer = getCurrentPlayer()
+let currentPlayer = getPlayerWhoHasToPlayer()
 
   if (!message) {
     console.warn("please provide message");

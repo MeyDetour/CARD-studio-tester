@@ -1,7 +1,7 @@
 import { connectSocket } from "../websocket/connection.js";
 import { homePage } from "../../pages/home/home.js";
 import  {testConfigPage }  from "../../pages/testConfig/testConfig.js";
-
+import { page401 } from "../../pages/page401/page401.js";
 
 export async function loadRoute(params = {}) {
   const route = params.path;
@@ -22,6 +22,9 @@ export async function loadRoute(params = {}) {
       break; 
     case "/home":
       html = homePage(params);
+      break;
+    case "/page-401":
+      html = page401(params);
       break;
     default:
       html = homePage(params);
