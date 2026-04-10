@@ -12,7 +12,7 @@ export function winPage() {
     return null;
   }
   if (!currentPlayer) {
-    displayError("No current player found to display win page");
+    displayError("No current player found to display win page at win page");
     return null;
   }
   if (currentPlayer.haswin.value !== true || currentPlayer.isSpectator.value == true) {

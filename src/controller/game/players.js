@@ -6,19 +6,21 @@ export function isPassifPlayer(player) {
     player.isSpectator?.value || player.haswin?.value || player.hasloose?.value
   );
 }
-export function getPlayerStat(player,gameData) {
+export function getPlayerStat(player, gameData) {
   let arrayOfStat = [];
   for (let key in player) {
     if (key == "skin") {
       continue;
     }
     if (key == "gain") {
-      for (let gainKey of  Object.keys(player.gain?.value)) {
-        let gainObject = gameData.roomInDb.assets.gains.find(elt => elt.id == gainKey);
+      for (let gainKey of Object.keys(player.gain?.value)) {
+        let gainObject = gameData.roomInDb.assets.gains.find(
+          (elt) => elt.id == gainKey,
+        );
         if (!gainObject) continue;
         arrayOfStat.push({
           name: gainObject.name,
-          value: player.gain.value[gainKey].value 
+          value: player.gain.value[gainKey].value,
         });
       }
 
@@ -32,10 +34,6 @@ export function getPlayerStat(player,gameData) {
 
   return arrayOfStat;
 }
-export function addPlayer() {
-  const newPlayer = {};
-  window.players = [player];
-}
 export function getRandomSkin() {
   let index = Math.floor(Math.random() * spookySkins.length);
   return spookySkins.splice(index, 1)[0];
@@ -47,7 +45,7 @@ export function getPlayerWhoHasToPlayer() {
     return null;
   }
   return gameData.data.players.find(
-    (player) => player.hasToPlay?.value === true,
+    (player) => player.position === gameData.data.currentPlayerPosition.value,
   );
 }
 export function getPlayerOfCurrentView() {
@@ -56,7 +54,6 @@ export function getPlayerOfCurrentView() {
   if (!gameData || !gameData.data || !gameData.data.players) {
     console.warn("Invalid gameData structure:", gameData);
     return null;
-  }
-
-  return players.find((player) => player.position === view.playerView);
+  } 
+  return players.find((player) => player.position == view.playerView);
 }

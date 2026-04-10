@@ -133,7 +133,7 @@ export function autoReloadComposant_gameplayHanddeck() {
   let currentPlayer = getPlayerWhoHasToPlayer();
 
   if (!currentPlayer) {
-    displayError("No current player found to display game");
+    displayError("No current player found to display hand deck");
     return;
   }
   reloadComposant_gameplayHanddeck(

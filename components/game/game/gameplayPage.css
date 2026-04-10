@@ -2,8 +2,8 @@
   width: 100%;
   height: 100%;
 
-    display: flex;
-    flex-direction: column; 
+  display: flex;
+  flex-direction: column;
   background-color: #f5f3f0;
   .titleContainer {
     display: flex;
@@ -59,42 +59,38 @@
       flex-direction: column;
       justify-content: flex-start;
 
-      select {
-        width: 100%;
-        border: 0;
-        padding: 15px 10px;
-        border-radius: 10px;
-        outline: 0;
-      }
-
-      .playerSection {
-        width: 100%;
+      .statEventsDemonsWithValueSection {
         display: flex;
         flex-direction: column;
-        gap: 24px;
-        .wrapper {
-          .playerStat {
-            box-sizing: border-box;
-            background: #f5f5fd;
-            border: 1px solid blue;
-            border-radius: 13px;
-            padding: 13px;
-            text-align: start;
-            width: 100%;
+        gap: 15px;
+        > .boxContainer {
+          gap: 0;
+    font-size: 15px;
+    text-align: start;
+        }
+        .statEventsDemonsWithValueSection-navigation {
+          display: flex;
+          flex-direction: row;
+          justify-content: start;
+          align-items: center;
+          gap: 15px;
+          background: white;
+          width: fit-content;
+          padding: 5px;
+          border-radius: 19px;
+          span {
+            cursor: pointer;
             display: flex;
-            flex-direction: column;
-            align-items: start;
-            .statWrapper {
-              display: flex;
-              flex-direction: row;
-              flex-wrap: wrap;
-              font-size: 15px;
-              justify-content: space-between;
-              text-align: start;
-              span {
-                width: 45%;
-              }
-            }
+            flex-direction: row;
+            justify-content: start;
+            gap: 5px;
+            font-size: 17px;
+            color: #3b3b3b;
+            padding: 7px 16px;
+            border-radius: 25px;
+          }
+          span.selected {
+            background: #ffe1f8;
           }
         }
       }
@@ -109,37 +105,78 @@
       flex-direction: column;
       padding-left: 0;
       gap: 15px;
-      .statEventsDemonsWithValueSection {
+      .topRow {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
         gap: 15px;
-        .statEventsDemonsWithValueSection-navigation {
+        .col {
           display: flex;
-          flex-direction: row;
-          justify-content: start;
-          align-items: center;
+          flex-direction: column;
           gap: 15px;
-          background: white;
-          width: fit-content;
-          padding: 5px;
-          border-radius: 19px;
-          span {
-            display: flex;
-            flex-direction: row;
-            justify-content: start;
-            gap: 5px;
-            font-size: 17px;
-            color: #3b3b3b;
-            padding: 7px 16px;
-            border-radius: 25px;
+          width: 46%;
+          select {
+            width: 100%;
+            border: 0;
+            padding: 15px 10px;
+            border-radius: 10px;
+            outline: 0;
+          }
+
+          .actionSection {
+            .actionWrapper {
+              width: 100%;
+              height: fit-content;
+              button {
+             
+                                width: 47%;
+                                padding: 9px;
+                                font-size: 17px;
+                                border-radius: 10px;
+                                border: 0;
+                                background: #f6f4f4;
+                                border: 1px solid #1a313f63;
+              }
+            }
+          }
+        }
+        .playerSection {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          .wrapper {
+            .playerStat {
+              box-sizing: border-box;
+              background: #f5f5fd;
+              border: 1px solid blue;
+              border-radius: 13px;
+              padding: 13px;
+              text-align: start;
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              align-items: start;
+              .statWrapper {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                font-size: 15px;
+                justify-content: space-between;
+                text-align: start;
+                span {
+                  width: 45%;
+                }
+              }
+            }
           }
         }
       }
       #gameplayPage {
         width: 100%;
 
-                height: 100%;
-                border-radius: 15px; 
+        height: 100%;
+        border-radius: 15px;
         overflow: hidden;
         background:
           linear-gradient(135deg, #006243 0%, #007c52 50%, #00513a 100%), #fff;

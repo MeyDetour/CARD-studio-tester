@@ -16,7 +16,7 @@ import {
   gameplay_actionsButtons,
   reloadComposant_gameplayActionsButtons,
 } from "./actionsButtons/actionsButtons.js";
-import { gameplay_menu, hideGameplayMenu } from "./menu/menu.js";
+import { gameplay_menu } from "./menu/menu.js";
 import {
   gameplay_globalValues,
   reloadComposant_gameplayGlobalValues,
@@ -34,6 +34,7 @@ import {
   gameplay_spectatorBanniere,
 } from "./spectatorBanniere/spectatorBanniere.js";
 import { players } from "../../../src/main.js";
+import gameplay_statEventsDemonsWithValueSection from "./eventsDemonsWithValueSection/section.js";
 
 export default function gameplayPage() {
   if (!players) {
@@ -85,57 +86,34 @@ export default function gameplayPage() {
           </div> 
         <div class="row">
         <div class="left">
-          <div class="boxContainer">
-                <div class="titleContainer">
-                    <img>
-                    <h5>
-                        Point de vue
-                    </h5> 
-                </div>
-                    <select name="pointOfView" id="pointOfView"" onchange="changeCardSort(event)">
-                    ${players
-                      .map(
-                        (player, index) => /*html*/ `
-                      <option ${index === view.playerView ? "selected" : ""} value="${index}">${player.pseudo}</option>
-                    `,
-                      )
-                      .join("")} 
-                  </select>
-          </div>
-            <div class="boxContainer playerSection">
-              <div class="titleContainer">
-                    <img>
-                    <h4>Joueurs
-                    </h4> 
-                </div>
-
-                <div class="wrapper">
-                    ${players
-                      .map(
-                        (player, index) => /*html*/ `
-                        <div class="playerStat">
-                                <div class="titleContainer"><img><h5>${player.pseudo}</h5></div>
-                                <div class="statWrapper">
-                                  ${getPlayerStat(player,gameData)
-                                    .map((stat) => (`
-                                      <span>
-                                        ${stat.name} : ${stat.value}
-                                      </span>
-                                   ` ))
-                                    .join("")}  
-                                </div>
-                        </div>
-                                    
-                    `,
-                      )
-                      .join("")} 
-                  
-                        
-                    </div>
-                </div>
-                
            
-                <div class="boxContainer">
+            <div class="statEventsDemonsWithValueSection">
+            ${gameplay_statEventsDemonsWithValueSection(gameData, view)}
+            </div>
+          </div>
+         
+          <div class="right">
+          <div class="topRow">
+          <div class="col">
+            <div class="boxContainer">
+                  <div class="titleContainer">
+                      <img>
+                      <h5>
+                          Point de vue
+                      </h5> 
+                  </div>
+                      <select name="pointOfView" id="pointOfView"" onchange="changeCardSort(event)">
+                      ${players
+                        .map(
+                          (player, index) => /*html*/ `
+                        <option ${index === view.playerView ? "selected" : ""} value="${index}">${player.pseudo}</option>
+                      `,
+                        )
+                        .join("")} 
+                    </select>
+            </div>
+
+                <div class="boxContainer actionSection">
                     <div class="titleContainer">
                           <img>
                           <h4>
@@ -147,23 +125,47 @@ export default function gameplayPage() {
                             <button>Piocher</button>
                         </div> 
                 </div>
+                 
+            </div>
+             <div class="boxContainer playerSection">
+              <div class="titleContainer">
+                    <img>
+                    <h4>Joueurs ${players.length}</h4>
+                    </h4> 
+                </div>
+
+                <div class="wrapper">
+                    ${players
+                      .map(
+                        (player, index) => /*html*/ `
+                        <div class="playerStat">
+                                <div class="titleContainer"><img><h5>${player.pseudo}</h5></div>
+                                <div class="statWrapper">
+                                  ${getPlayerStat(player, gameData)
+                                    .map(
+                                      (stat) => `
+                                      <span>
+                                        ${stat.name} : ${stat.value}
+                                      </span>
+                                   `,
+                                    )
+                                    .join("")}  
+                                </div>
+                        </div>
+                                    
+                    `,
+                      )
+                      .join("")} 
+                  
+                        
+                    </div>
                 </div>
          
-          <div class="right">
-          
-            <div class="statEventsDemonsWithValueSection">
-              <div class="statEventsDemonsWithValueSection-navigation">
-                 <span>Value</span>
-                 <span>Events</span>
-                 <span>Demons</span>
-              </div>
-              <div class="boxContainer">
-              </div>
-            </div>
+          </div>
+             
             
             <div id="gameplayPage">
-            ${gameplay_messageOfLoading(gameData.data.logs)}
-            ${gameplay_globalValues({ ...gameData.data, ...gameData.data.globalValueStatic })}
+            ${gameplay_messageOfLoading(gameData.data.logs)} 
             ${gameplay_handdeck(params.displayHandDeck, handDeck, cardList)}
             ${gameplay_spectatorBanniere(currentPlayer)}
             
@@ -247,8 +249,8 @@ export function reloadComposant_gameplayPage() {
     return;
   }
 
-  let currentPlayer = getPlayerWhoHasToPlayer();
-
+  let currentPlayer = getPlayerOfCurrentView(); 
+  console.log(currentPlayer);
   if (!currentPlayer) {
     displayError("No current player found to display game");
     return;

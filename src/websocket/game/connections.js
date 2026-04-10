@@ -6,6 +6,7 @@ import { reloadComposant_waitingPagePlayersBlock } from "../../../components/gam
 import { reloadComposant_waitingPageCopyBlock } from "../../../components/game/waitingPage/waitingPageCopyBlock/waitingPageCopyBlock.js";
 import { loadRoute } from "../../router/router.js";
 import { players } from "../../main.js";
+import { connectSocket } from "../connection.js";
 
 export function gameConnectionsListen(socket) {
   socket.on("roomCreated", async ({ gameData, player }) => {
@@ -13,6 +14,7 @@ export function gameConnectionsListen(socket) {
     storeGameData(gameData);
     storeRoomId(gameData.roomId); 
     players.push({ ...player, socket: socket });
+    connectSocket();
     await loadRoute({ path: "/test-config" });
   });
 

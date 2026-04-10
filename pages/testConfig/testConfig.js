@@ -1,12 +1,13 @@
 import { button } from "../../components/button/button.js";
 import { getGameData } from "../../src/controller/game/dataStorage.js";
 import { players } from "../../src/main.js";
+import { connectSocket } from "../../src/websocket/connection.js";
 export function testConfigPage(params = {}) {
   let gameData = getGameData();
   if (!players) {
     console.warn("Sockets not initialized yet, redirecting to loading page");
     return;
-  }
+  } 
   return /*html*/ `  <div class="testConfigPage">
           <div class="head" >
               <h2>${gameData.roomInDb.name}</h2> 
