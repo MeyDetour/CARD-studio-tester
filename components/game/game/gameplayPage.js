@@ -5,8 +5,7 @@ import {
   getView,
 } from "../../../src/controller/game/dataStorage.js";
 import { getPlayerStat } from "../../../src/controller/game/players.js";
-import { displayError } from "../../../src/controller/error.js";
-import { gameplay_messageOfLoading } from "./messageOfLoading/messageOfLoading.js";
+import { displayError } from "../../../src/controller/error.js"; 
 import { gameplay_displayAllPlayers } from "./players/players.js";
 import {
   gameplay_handdeck,
@@ -16,15 +15,11 @@ import {
   gameplay_actionsButtons,
   reloadComposant_gameplayActionsButtons,
 } from "./actionsButtons/actionsButtons.js";
-import { gameplay_menu } from "./menu/menu.js";
 import {
   gameplay_globalValues,
   reloadComposant_gameplayGlobalValues,
 } from "./globalValues/globalValues.js";
-import {
-  getPlayerOfCurrentView,
-  getPlayerWhoHasToPlayer,
-} from "../../../src/controller/game/players.js";
+import { getPlayerOfCurrentView } from "../../../src/controller/game/players.js";
 import {
   gameplay_cardPile,
   reloadComposant_gameplayCardPile,
@@ -33,18 +28,12 @@ import {
   reloadComposant_gameplaySpectatorBanniere,
   gameplay_spectatorBanniere,
 } from "./spectatorBanniere/spectatorBanniere.js";
-import { players } from "../../../src/main.js";
-import gameplay_statEventsDemonsWithValueSection from "./eventsDemonsWithValueSection/section.js";
 
 export default function gameplayPage() {
-  if (!players) {
-    displayError("No players found to display game");
-    return "";
-  }
   const excludeFieldOfPlayer = ["socket", "handDeck", "socketID"];
 
   let view = getView();
-  let currentPlayer = getPlayerOfCurrentView();
+  let currentPlayer = getPlayerOfCurrentView(); 
   let gameData = getGameData();
   if (!gameData) {
     displayError("No game data found to display game");
@@ -80,92 +69,8 @@ export default function gameplayPage() {
   );
 
   return /*html */ `
-  <div class="statGamePage">
-    <div class="head" >
-              <h2>${gameData.roomInDb.name}</h2> 
-          </div> 
-        <div class="row">
-        <div class="left">
-           
-            <div class="statEventsDemonsWithValueSection">
-            ${gameplay_statEventsDemonsWithValueSection(gameData, view)}
-            </div>
-          </div>
-         
-          <div class="right">
-          <div class="topRow">
-          <div class="col">
-            <div class="boxContainer">
-                  <div class="titleContainer">
-                      <img>
-                      <h5>
-                          Point de vue
-                      </h5> 
-                  </div>
-                      <select name="pointOfView" id="pointOfView"" onchange="changeCardSort(event)">
-                      ${players
-                        .map(
-                          (player, index) => /*html*/ `
-                        <option ${index === view.playerView ? "selected" : ""} value="${index}">${player.pseudo}</option>
-                      `,
-                        )
-                        .join("")} 
-                    </select>
-            </div>
-
-                <div class="boxContainer actionSection">
-                    <div class="titleContainer">
-                          <img>
-                          <h4>
-                              Actions pour ${currentPlayer.pseudo}
-                            
-                          </h4> 
-                    </div>
-                        <div class="actionWrapper">
-                            <button>Piocher</button>
-                        </div> 
-                </div>
-                 
-            </div>
-             <div class="boxContainer playerSection">
-              <div class="titleContainer">
-                    <img>
-                    <h4>Joueurs ${players.length}</h4>
-                    </h4> 
-                </div>
-
-                <div class="wrapper">
-                    ${players
-                      .map(
-                        (player, index) => /*html*/ `
-                        <div class="playerStat">
-                                <div class="titleContainer"><img><h5>${player.pseudo}</h5></div>
-                                <div class="statWrapper">
-                                  ${getPlayerStat(player, gameData)
-                                    .map(
-                                      (stat) => `
-                                      <span>
-                                        ${stat.name} : ${stat.value}
-                                      </span>
-                                   `,
-                                    )
-                                    .join("")}  
-                                </div>
-                        </div>
-                                    
-                    `,
-                      )
-                      .join("")} 
-                  
-                        
-                    </div>
-                </div>
-         
-          </div>
+ 
              
-            
-            <div id="gameplayPage">
-            ${gameplay_messageOfLoading(gameData.data.logs)} 
             ${gameplay_handdeck(params.displayHandDeck, handDeck, cardList)}
             ${gameplay_spectatorBanniere(currentPlayer)}
             
@@ -207,23 +112,15 @@ export default function gameplayPage() {
               playerActions.filter(
                 (a) => !a.actionOnDeck && !a.actionOnDiscardDeck,
               ),
-              gameData.data.currentPlayerPosition.value ===
+              gameData.data.currentPlayerPosition.value ==
                 currentPlayer.position,
               currentPlayer,
-              gameData.roomId,
             )}
-                ${gameplay_menu(gameData.data.players, currentPlayer)}
-                        
-                <div class="headerButtons">
-                  ${button("menu", null, null, "toggleGameplayMenu", null, "whiteButton gameplayMenuButton")}
-                </div>
-              
+               
                 ${gameplay_displayAllPlayers(gameData, currentPlayer)}  
 
-                
-            </div>
-          </div>
-        </div>
+                 
+       
     `;
 }
 
@@ -250,7 +147,6 @@ export function reloadComposant_gameplayPage() {
   }
 
   let currentPlayer = getPlayerOfCurrentView(); 
-  console.log(currentPlayer);
   if (!currentPlayer) {
     displayError("No current player found to display game");
     return;
@@ -279,7 +175,6 @@ export function reloadComposant_gameplayPage() {
     playerActions.filter((a) => !a.actionOnDeck && !a.actionOnDiscardDeck),
     gameData.data.currentPlayerPosition.value === currentPlayer.position,
     currentPlayer,
-    gameData.roomId,
   );
   reloadComposant_gameplayCardPile(
     content,

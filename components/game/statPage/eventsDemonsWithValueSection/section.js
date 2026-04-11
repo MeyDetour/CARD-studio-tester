@@ -1,5 +1,7 @@
 import { getGameData , getView,storeView } from "../../../../../src/controller/game/dataStorage.js";
-import statEventsDemonsWithValueSectionEventSection from "./value.js";
+ import statEventsDemonsWithValueSectionLogsSection from "./logs.js";
+import statEventsDemonsWithValueSectionValueSection from "./value.js";
+import statEventsDemonsWithValueSectionEventsSection from "./events.js";
 
 export default function gameplay_statEventsDemonsWithValueSection(
   gameData,
@@ -15,17 +17,19 @@ export default function gameplay_statEventsDemonsWithValueSection(
                 <div class="boxContainer">
                         ${
                           view.statEventsDemonsWithValue == "value"
-                            ? statEventsDemonsWithValueSectionEventSection(
+                            ? statEventsDemonsWithValueSectionValueSection(
                                 gameData,
                               )
                             : view.statEventsDemonsWithValue == "events"
-                              ? "events"
+                              ? statEventsDemonsWithValueSectionEventsSection(
+                                gameData,
+                              )
                               : view.statEventsDemonsWithValue == "demons"
                                 ? "<div>Demons</div>"
                                 : view.statEventsDemonsWithValue == "logs"
-                                  ? gameplay_messageOfLoading(
-                                      gameData.data.logs,
-                                    )
+                                  ? statEventsDemonsWithValueSectionLogsSection(
+                                gameData,
+                              )
                                   : ""
                         } 
                         

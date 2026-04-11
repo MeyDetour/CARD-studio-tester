@@ -4,8 +4,7 @@ import "./controller/error.js";
 import "./controller/game/actions.js";
 import "./controller/game/louancher.js";
 import "./helpers/copy.js";
-import "./controller/game/spectactor.js";
-import "../components/game/widgetLetCommentaire/widgetLetCommentaire.js";
+import "./controller/game/spectactor.js"; 
 import "./controller/game/players.js";
 import { apiClient } from "./helpers/api.js";
 import { env } from "../env.js";
@@ -48,7 +47,7 @@ const disconnectAndReconnect = () => {
     // On ferme la fenêtre de test
     deleteToken();
     deleteGameId();
-    loadRoute({path:"/page-401"});
+    loadRoute({ path: "/page-401" });
     //window.close();
   } else {
     // Si la fenêtre a été ouverte seule, on redirige juste
@@ -57,29 +56,28 @@ const disconnectAndReconnect = () => {
 };
 const redirectToCardStudio = () => {
   window.location.href = env.CARD_STUDIO_FRONT_END_URL;
-}
+};
 window.redirectToCardStudio = redirectToCardStudio;
 const handleMessage = (event) => {
-    if (token || gameId) return;
-    if (event.origin !== env.CARD_STUDIO_FRONT_END_URL) {
-      return;
-    }
+  if (token || gameId) return;
+  if (event.origin !== env.CARD_STUDIO_FRONT_END_URL) {
+    return;
+  }
 
-    token = event.data.token;
-    gameId = event.data.gameId;
+  token = event.data.token;
+  gameId = event.data.gameId;
 
-    if (token) {
-      setToken(token);
-      setGameId(gameId);
-      getGame();
-    } else {
-      console.warn("Message reçu sans token :", event.data);
-    }
-    window.removeEventListener("message", handleMessage);
-  };
+  if (token) {
+    setToken(token);
+    setGameId(gameId);
+    getGame();
+  } else {
+    console.warn("Message reçu sans token :", event.data);
+  }
+  window.removeEventListener("message", handleMessage);
+};
 const initApp = async () => {
   // 3 - handle message from card studio with token and gameId to start the app
-  
 
   // 2 - wait for message from card studio with token and gameId to start the app
   window.addEventListener("message", handleMessage);
@@ -92,10 +90,10 @@ const initApp = async () => {
   // 4 - if page is reloaded and token and gameId are already in localStorage, start the app
   if (token && gameId) {
     getGame();
-    return
+    return;
   }
 
-  loadRoute({path:"/"});
+  loadRoute({ path: "/" });
 };
 
 if (document.readyState === "loading") {

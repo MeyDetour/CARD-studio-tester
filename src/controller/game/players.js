@@ -9,9 +9,10 @@ export function isPassifPlayer(player) {
 export function getPlayerStat(player, gameData) {
   let arrayOfStat = [];
   for (let key in player) {
-    if (key == "skin") {
+    if (key == "skin" || key ==="actions" || key =="socketID") {
       continue;
     }
+    
     if (key == "gain") {
       for (let gainKey of Object.keys(player.gain?.value)) {
         let gainObject = gameData.roomInDb.assets.gains.find(
@@ -27,7 +28,7 @@ export function getPlayerStat(player, gameData) {
       continue;
     }
 
-    if (player[key] && player[key].value !== undefined) {
+    if (player[key]  ) {
       arrayOfStat.push({ name: key, value: player[key].value ?? player[key] });
     }
   }
@@ -55,5 +56,5 @@ export function getPlayerOfCurrentView() {
     console.warn("Invalid gameData structure:", gameData);
     return null;
   } 
-  return players.find((player) => player.position == view.playerView);
+  return gameData.data.players.find((player) => player.position == view.playerView);
 }

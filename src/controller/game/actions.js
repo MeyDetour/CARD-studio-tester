@@ -1,4 +1,5 @@
 import { reloadComposant_gameplayPage } from "../../../components/game/game/gameplayPage.js";
+import { players } from "../../main.js";
 
 /* Function to handle player actions in the game
     @param {string} playerId - The ID of the player performing the action
@@ -6,12 +7,15 @@ import { reloadComposant_gameplayPage } from "../../../components/game/game/game
     @param {string} action - The name of action being performed
     @param {string} actionType - The type of action (e.g., "askPlayer")
 */
-function doAction(params) {  
-    let action = params.action;
-    let actionType = params.actionType || "default";
-    
-  console.log("Do Action :>> ", {   action, actionType });
-   socket.emit("doAction", {  action, actionType });
-} 
+function doAction(params) {
+  let action = params.action;
+  let actionType = params.actionType || "default";
+  let id = params.playerId;
+console.log(id);
+console.log(players);
+  let socket = players.find((player) => player.id == id).socket;
+  console.log("Do Action :>> ", { action, actionType });
+  socket.emit("doAction", { action, actionType });
+}
 
-window.doAction = doAction; 
+window.doAction = doAction;

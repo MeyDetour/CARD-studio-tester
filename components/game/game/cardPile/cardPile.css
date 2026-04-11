@@ -1,5 +1,5 @@
 .gameplayPile {
-  width: 80px;
+    width: 44px;
   height: fit-content;
   position: absolute;
   left: 15px;
@@ -43,8 +43,7 @@
   }
 }
 .gameplayPile#pile-type-discardDeck {
-  left: 15px;
-    top: 46%;
+  left: 15px;    top: 41%;
   transform: translateY(100%);
 }
 

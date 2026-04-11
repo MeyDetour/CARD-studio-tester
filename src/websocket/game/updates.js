@@ -1,14 +1,12 @@
-import {  storeGameData } from "../../controller/game/dataStorage.js";
-import { reloadComposant_gamePage } from "../../../pages/game/game.js";
-import { addMessageInLoadingMessage } from "../../../components/game/game/messageOfLoading/messageOfLoading.js";
- 
+import {  storeGameData } from "../../controller/game/dataStorage.js";  
+import { reloadComposant_StatPage } from "../../../components/game/statPage/statPage.js"; 
 
 export function gameUpdatesListen(socket) {
 
       socket.on("youAreSpectator", (currentPlayer) => {
         console.log("RECEIVE YOU ARE SPECTATOR :>>", { currentPlayer });
     
-        reloadComposant_gamePage();
+        reloadComposant_StatPage();
       });
     
       socket.on("playerData", (currentPlayer) => {
@@ -18,13 +16,9 @@ export function gameUpdatesListen(socket) {
     
       socket.on("gameChanges", ({ gameData, currentPlayer }) => {
         console.log("RECEIVE GAME CHANGES :>>", { gameData, currentPlayer });
-        console.log(
-          "current player position :",
-          gameData.data.currentPlayerPosition.value,
-        ); 
+       
+        storeGameData(gameData);
+        reloadComposant_StatPage();
       });
-    
-      socket.on("updateGameDataLogs", (message) => {
-        addMessageInLoadingMessage(message);
-      });
+     
 }

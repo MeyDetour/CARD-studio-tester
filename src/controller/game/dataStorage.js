@@ -69,16 +69,17 @@ export function deleteToken(){
 }
 
 
-export function storeView(){
-
+export function storeView(obj){
+  localStorage.setItem("view", JSON.stringify(obj));
 }
 export function getView(){
-  return localStorage.getItem("view") || {
-    statEventsDemonsWithValue: "events",
+  return JSON.parse(localStorage.getItem("view")) || {
+    statEventsDemonsWithValue: "value",
     playerView: 1,    
   };
 }
 
+ 
 export function deleteAllGameVariablesSaved(){
   storeRoomId("")
   storeGameData("") 

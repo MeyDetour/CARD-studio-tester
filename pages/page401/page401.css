@@ -8,6 +8,13 @@
   align-items: center;
   padding-inline: 12%;
   box-sizing: border-box;
+  main{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
   
 }
 .page401::after {

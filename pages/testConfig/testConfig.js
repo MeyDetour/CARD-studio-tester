@@ -4,10 +4,12 @@ import { players } from "../../src/main.js";
 import { connectSocket } from "../../src/websocket/connection.js";
 export function testConfigPage(params = {}) {
   let gameData = getGameData();
+  let players = gameData?.data?.players || [];
   if (!players) {
     console.warn("Sockets not initialized yet, redirecting to loading page");
     return;
-  } 
+  }
+
   return /*html*/ `  <div class="testConfigPage">
           <div class="head" >
               <h2>${gameData.roomInDb.name}</h2> 
@@ -26,29 +28,38 @@ export function testConfigPage(params = {}) {
                             </div>
                             <div>
                               <h4>${player.pseudo}</h4>
-                              ${gameData.admin.id !== player.id ? button(
-                                null,
-                                null,
-                                null,
-                                "disconnectSocket",
-                                "Remove",
-                                "linkApparence",
-                                { index: index },
-                              ) : ""}
+                              ${
+                                gameData.admin.id !== player.id
+                                  ? button(
+                                      null,
+                                      null,
+                                      null,
+                                      "disconnectSocket",
+                                      "Remove",
+                                      "linkApparence",
+                                      { index: index },
+                                    )
+                                  : ""
+                              }
                             </div>
                         </div>
                         `;
                     })
                     .join("")}
                     
-                      ${gameData.roomInDb.params.globalGame.maxPlayer > players.length ? button(
-                        "add-grey",
-                        null,
-                        null,
-                        "connectSocket",
-                        "Add player",
-                        "addButton",
-                      ) : ""}  
+                      ${
+                        gameData.roomInDb.params.globalGame.maxPlayer >
+                        players.length
+                          ? button(
+                              "add-grey",
+                              null,
+                              null,
+                              "connectSocket",
+                              "Add player",
+                              "addButton",
+                            )
+                          : ""
+                      }  
                 </div>
             </div>
             <div class="right">

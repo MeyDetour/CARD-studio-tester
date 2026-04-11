@@ -1,9 +1,7 @@
 import {
   storeRoomId, 
   storeGameData,
-} from "../../controller/game/dataStorage.js";  
-import { reloadComposant_waitingPagePlayersBlock } from "../../../components/game/waitingPage/waitingPagePlayersBlock/waitingPagePlayersBlock.js";
-import { reloadComposant_waitingPageCopyBlock } from "../../../components/game/waitingPage/waitingPageCopyBlock/waitingPageCopyBlock.js";
+} from "../../controller/game/dataStorage.js";   
 import { loadRoute } from "../../router/router.js";
 import { players } from "../../main.js";
 import { connectSocket } from "../connection.js";
@@ -13,7 +11,7 @@ export function gameConnectionsListen(socket) {
     console.log("RECEIVE ROOM SUCCESSFULLY CRTEATED :>>", { gameData, player });
     storeGameData(gameData);
     storeRoomId(gameData.roomId); 
-    players.push({ ...player, socket: socket });
+    players.push({ id: player.id, socket: socket });
     connectSocket();
     await loadRoute({ path: "/test-config" });
   });
@@ -22,7 +20,7 @@ export function gameConnectionsListen(socket) {
     console.log("RECEIVE ROOM JOINED :>>", { gameData, player });
     
     storeGameData(gameData); 
-    players.push({ ...player, socket: socket });
+    players.push({ id: player.id, socket: socket });
 
     await loadRoute({ path: "/test-config" });
   });

@@ -3,9 +3,9 @@ import { isPassifPlayer } from "../../../../src/controller/game/players.js";
 export function gameplay_actionsButtons(
   actions,
   isCurrentTurn,
-  currentPlayer,
-  roomId,
-) {
+  currentPlayer, 
+) { 
+
   if (isPassifPlayer(currentPlayer)) {
     return "";
   }
@@ -22,6 +22,7 @@ export function gameplay_actionsButtons(
         return button(null, null, null, "doAction", action.name, "greyButton", {
           action: action.name,
           actionType: action.type || "default",
+          playerId : currentPlayer.id
         });
       })
       .join("")}

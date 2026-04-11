@@ -1,284 +1,101 @@
 .statGamePage {
-  width: 100%;
-  height: 100%;
+  .right {
+    #gameplayPage {
+      width: 100%;
 
-  display: flex;
-  flex-direction: column;
-  background-color: #f5f3f0;
-  .titleContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: start;
-    h5 {
-      margin: 0;
-    }
-  }
-
-  .head {
-    padding: 20px;
-    padding-top: 30px;
-    width: 100%;
-    height: fit-content;
-    box-sizing: border-box;
-    background: white;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: start;
-    border-bottom: 1px solid #e5e7eb;
-  }
-  .boxContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    width: 100%;
-    height: fit-content;
-    background: white;
-    border-radius: 18px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 16px 18px;
-    gap: 13px;
-    box-sizing: border-box;
-  }
-  .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: start;
-    width: 100%;
-    height: 100%;
-    .left {
-      padding: 24px;
-      box-sizing: border-box;
       height: 100%;
-      gap: 16px;
-      width: 30%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
+      border-radius: 15px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, #006243 0%, #007c52 50%, #00513a 100%), #fff;
+      background:
+        linear-gradient(
+          135deg,
+          color(display-p3 0 0.3765 0.2706) 0%,
+          color(display-p3 0 0.4784 0.3333) 50%,
+          color(display-p3 0 0.3098 0.2314) 100%
+        ),
+        color(display-p3 1 1 1);
 
-      .statEventsDemonsWithValueSection {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        > .boxContainer {
-          gap: 0;
-    font-size: 15px;
-    text-align: start;
-        }
-        .statEventsDemonsWithValueSection-navigation {
-          display: flex;
-          flex-direction: row;
-          justify-content: start;
-          align-items: center;
-          gap: 15px;
-          background: white;
-          width: fit-content;
-          padding: 5px;
-          border-radius: 19px;
-          span {
-            cursor: pointer;
-            display: flex;
-            flex-direction: row;
-            justify-content: start;
-            gap: 5px;
-            font-size: 17px;
-            color: #3b3b3b;
-            padding: 7px 16px;
-            border-radius: 25px;
+      .gameplayMessagerie-container {
+        position: absolute;
+        display: none;
+        right: 15px;
+        top: 65px;
+        width: 40%;
+        z-index: 5;
+        height: 537px;
+        .chat {
+          .wrapper {
+            padding: 10px !important;
+            width: 100% !important;
           }
-          span.selected {
-            background: #ffe1f8;
+          .wrapper::-webkit-scrollbar {
+            display: none;
+          }
+          .messageRight {
+            padding: 0 !important;
+          }
+          .message {
+            & > div {
+              p {
+                padding: 6px 22px;
+              }
+            }
+          }
+          .messageLog {
+            p {
+              font-size: 15px;
+            }
           }
         }
       }
-    }
 
-    .right {
-      width: 73%;
-      height: 100%;
-      padding: 24px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      padding-left: 0;
-      gap: 15px;
-      .topRow {
+      .headerButtons {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        position: absolute;
+        top: 10px;
+        right: 10px;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        gap: 15px;
-        .col {
+        gap: 7px;
+        .gameplayChatButton,
+        .gameplayMenuButton {
+          aspect-ratio: 1 / 1;
+          padding: 9px;
+          text-align: center;
+          position: relative;
+          border-radius: 50%;
+          background: #1a313f;
+          border: 1px solid #45556c;
           display: flex;
           flex-direction: column;
-          gap: 15px;
-          width: 46%;
-          select {
-            width: 100%;
-            border: 0;
-            padding: 15px 10px;
-            border-radius: 10px;
-            outline: 0;
-          }
-
-          .actionSection {
-            .actionWrapper {
-              width: 100%;
-              height: fit-content;
-              button {
-             
-                                width: 47%;
-                                padding: 9px;
-                                font-size: 17px;
-                                border-radius: 10px;
-                                border: 0;
-                                background: #f6f4f4;
-                                border: 1px solid #1a313f63;
-              }
-            }
-          }
+          align-items: center;
+          justify-content: center;
+          padding: 15px;
         }
-        .playerSection {
-          width: 100%;
+        .gameplayChatButton.newMessage::after {
+          content: "!";
+          position: absolute;
+          bottom: -9px;
+          left: -6px;
+          width: 20px;
+          height: 20px;
+          background: red;
+          color: white;
+          border-radius: 50%;
           display: flex;
-          flex-direction: column;
-          gap: 24px;
-          .wrapper {
-            .playerStat {
-              box-sizing: border-box;
-              background: #f5f5fd;
-              border: 1px solid blue;
-              border-radius: 13px;
-              padding: 13px;
-              text-align: start;
-              width: 100%;
-              display: flex;
-              flex-direction: column;
-              align-items: start;
-              .statWrapper {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                font-size: 15px;
-                justify-content: space-between;
-                text-align: start;
-                span {
-                  width: 45%;
-                }
-              }
-            }
-          }
+          justify-content: center;
+          align-items: center;
+          font-size: 14px;
         }
       }
-      #gameplayPage {
-        width: 100%;
-
-        height: 100%;
-        border-radius: 15px;
-        overflow: hidden;
-        background:
-          linear-gradient(135deg, #006243 0%, #007c52 50%, #00513a 100%), #fff;
-        background:
-          linear-gradient(
-            135deg,
-            color(display-p3 0 0.3765 0.2706) 0%,
-            color(display-p3 0 0.4784 0.3333) 50%,
-            color(display-p3 0 0.3098 0.2314) 100%
-          ),
-          color(display-p3 1 1 1);
-
-        .gameplayMessagerie-container {
-          position: absolute;
-          display: none;
-          right: 15px;
-          top: 65px;
-          width: 40%;
-          z-index: 5;
-          height: 537px;
-          .chat {
-            .wrapper {
-              padding: 10px !important;
-              width: 100% !important;
-            }
-            .wrapper::-webkit-scrollbar {
-              display: none;
-            }
-            .messageRight {
-              padding: 0 !important;
-            }
-            .message {
-              & > div {
-                p {
-                  padding: 6px 22px;
-                }
-              }
-            }
-            .messageLog {
-              p {
-                font-size: 15px;
-              }
-            }
-          }
-        }
-
-        .headerButtons {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          display: flex;
-          flex-direction: row;
-          gap: 7px;
-          .gameplayChatButton,
-          .gameplayMenuButton {
-            aspect-ratio: 1 / 1;
-            padding: 9px;
-            text-align: center;
-            position: relative;
-            border-radius: 50%;
-            background: #1a313f;
-            border: 1px solid #45556c;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-          }
-          .gameplayChatButton.newMessage::after {
-            content: "!";
-            position: absolute;
-            bottom: -9px;
-            left: -6px;
-            width: 20px;
-            height: 20px;
-            background: red;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 14px;
-          }
-        }
-        .currentPlayer {
-          position: relative;
-        }
+      .currentPlayer {
+        position: relative;
       }
     }
   }
-}
-
-.statGamePage::after {
-  content: "";
-  width: 100%;
-  height: 10px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: linear-gradient(90deg, #a600ff 0%, #db00e6 50%, #a600ff 100%);
 }

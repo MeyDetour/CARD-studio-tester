@@ -4,11 +4,7 @@ import gameplayPage, {
 import {
   winPage,
   reloadComposant_winPage,
-} from "../../components/game/winPage/winPage.js";
-import {
-  waitingPage,
-  reloadComposant_waitingPage,
-} from "../../components/game/waitingPage/waitingPage.js";
+} from "../../components/game/winPage/winPage.js"; 
 import {
   loosePage,
   reloadComposant_loosePage,
@@ -41,10 +37,7 @@ export function gamePage(params = {}) {
     navigateTo({ path: "/games" });
     return;
   }
-
-  if (gameData.data.state.value == "waitingPlayers") {
-    return waitingPage(gameData, currentPlayer);
-  }
+ 
   if (gameData.data.state.value == "inProgress") {
     return gameplayPage();
   }
