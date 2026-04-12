@@ -13,6 +13,7 @@
         text-align: start;
         max-height: 100%;
         overflow-y: auto;
+        overflow-x: hidden;
         height: 100%;
         gap: 12px;
         .demonLine {
@@ -20,7 +21,7 @@
           text-align: center;
           background: #ffffff;
         }
-        .eventDetails {
+        .elementDetails {
           background: #f9fafb;
           border: 1px solid #e5e7eb;
 
@@ -44,7 +45,7 @@
               bottom: 5px;
             }
           }
-          .eventContent {
+          .elementContent {
             width: 100%;
             padding: 10px;
             background: white;

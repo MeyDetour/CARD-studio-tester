@@ -21,7 +21,7 @@ import {
 export let token = getToken() || null;
 export let gameId = getGameId() || null;
 export let players = [];
-
+localStorage.removeItem("askPlayer")
 const getGame = async () => {
   try {
     let gameInDB = await apiClient("api/game/" + gameId, null, {

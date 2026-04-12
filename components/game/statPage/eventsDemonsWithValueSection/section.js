@@ -1,7 +1,12 @@
-import { getGameData , getView,storeView } from "../../../../../src/controller/game/dataStorage.js";
- import statEventsDemonsWithValueSectionLogsSection from "./logs.js";
+import {
+  getGameData,
+  getView,
+  storeView,
+} from "../../../../../src/controller/game/dataStorage.js";
+import statEventsDemonsWithValueSectionLogsSection from "./logs.js";
 import statEventsDemonsWithValueSectionValueSection from "./value.js";
 import statEventsDemonsWithValueSectionEventsSection from "./events.js";
+import statEventsDemonsWithValueSectionDemonSection from "./demons.js";
 
 export default function gameplay_statEventsDemonsWithValueSection(
   gameData,
@@ -9,10 +14,10 @@ export default function gameplay_statEventsDemonsWithValueSection(
 ) {
   return /*html*/ `
     <div class="statEventsDemonsWithValueSection-navigation">
-                   <span onclick="changeSubpageOfStatEventsDemonsWithValueSection('value')" class="${view.statEventsDemonsWithValue == "value" ? "selected" : ""}">Value</span>
-                   <span onclick="changeSubpageOfStatEventsDemonsWithValueSection('events')" class="${view.statEventsDemonsWithValue == "events" ? "selected" : ""}">Events</span>
-                   <span onclick="changeSubpageOfStatEventsDemonsWithValueSection('demons')" class="${view.statEventsDemonsWithValue == "demons" ? "selected" : ""}">Demons</span>
-                   <span onclick="changeSubpageOfStatEventsDemonsWithValueSection('logs')" class="${view.statEventsDemonsWithValue == "logs" ? "selected" : ""}">Logs</span>
+                   <span onclick="changeSubpageOfStatEventsDemonsWithValueSection('value')" class="${view.statEventsDemonsWithValue == "value" ? "selected" : ""}">Variable</span>
+                   <span onclick="changeSubpageOfStatEventsDemonsWithValueSection('events')" class="${view.statEventsDemonsWithValue == "events" ? "selected" : ""}">Événements</span>
+                   <span onclick="changeSubpageOfStatEventsDemonsWithValueSection('demons')" class="${view.statEventsDemonsWithValue == "demons" ? "selected" : ""}">Démons</span>
+                   <span onclick="changeSubpageOfStatEventsDemonsWithValueSection('logs')" class="${view.statEventsDemonsWithValue == "logs" ? "selected" : ""}">Journaux</span>
                 </div>
                 <div class="boxContainer">
                         ${
@@ -22,14 +27,16 @@ export default function gameplay_statEventsDemonsWithValueSection(
                               )
                             : view.statEventsDemonsWithValue == "events"
                               ? statEventsDemonsWithValueSectionEventsSection(
-                                gameData,
-                              )
+                                  gameData,
+                                )
                               : view.statEventsDemonsWithValue == "demons"
-                                ? "<div>Demons</div>"
+                                ? statEventsDemonsWithValueSectionDemonSection(
+                                    gameData,
+                                  )
                                 : view.statEventsDemonsWithValue == "logs"
                                   ? statEventsDemonsWithValueSectionLogsSection(
-                                gameData,
-                              )
+                                      gameData,
+                                    )
                                   : ""
                         } 
                         
@@ -45,7 +52,8 @@ export function changeSubpageOfStatEventsDemonsWithValueSection(subpage) {
     view,
   );
 }
-window.changeSubpageOfStatEventsDemonsWithValueSection = changeSubpageOfStatEventsDemonsWithValueSection;
+window.changeSubpageOfStatEventsDemonsWithValueSection =
+  changeSubpageOfStatEventsDemonsWithValueSection;
 
 export function reloadComposant_gameplay_statEventsDemonsWithValueSection(
   gameData,

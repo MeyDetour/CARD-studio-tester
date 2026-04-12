@@ -24,6 +24,14 @@ export function getPlayerStat(player, gameData) {
       });
       continue;
     }
+    if (key == "roles") {
+        arrayOfStat.push({
+        name: "Roles",
+        value:  player.roles.value.map(role => role.name).join(", ")
+        
+      });
+      continue;
+    }
 
     if (key == "gain") {
       for (let gainKey of Object.keys(player.gain?.value)) {
@@ -71,4 +79,16 @@ export function getPlayerOfCurrentView() {
   return gameData.data.players.find(
     (player) => player.position == view.playerView,
   );
+}
+export function getSocketOfPlayerOfCurrentView() {
+  let gameData = getGameData();
+  let view = getView();
+  if (!gameData || !gameData.data || !gameData.data.players) {
+    console.warn("Invalid gameData structure:", gameData);
+    return null;
+  }
+ let currentPlayer =  gameData.data.players.find(
+    (player) => player.position == view.playerView,
+  );
+  return players.find(player => player.id == currentPlayer.id)?.socket || null;
 }

@@ -1,9 +1,7 @@
-
-import { displayAskPlayerWidget } from "../../../components/game/game/widgetContainerAskPlayer/widgetContainerAskPlayer.js";
-
+import { displayAskPlayerWidget } from "../../../components/game/statPage/topRowPlayerInformations/topRowPlayerInformations.js";
 export function gameActionsListen(socket) {
-      socket.on("askPlayer", ({ event, params, roomId }) => {
-    console.log("RECEIVE ORDER TO ASK PLAYER :>> ", { event, params, roomId });
-    displayAskPlayerWidget(event, params, roomId);
+      socket.on("askPlayer", ({ event, params }) => {
+    console.log("RECEIVE ORDER TO ASK PLAYER :>> ", { event, params});
+    displayAskPlayerWidget(event, params);
   });
 }

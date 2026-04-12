@@ -3,22 +3,22 @@ import { getGainIdOfGainString } from "../../../../src/helpers/string.js";
 import { formatSimpleDate } from "../../../../src/helpers/date.js";
 export default function statEventsDemonsWithValueSectionEventSection(gameData) {
  let data = gameData.data?.testLogs
-           .filter((log) => log.testType == "event" || log.testType == "demon")
+           .filter((log) => log.testType == "event" || log.testType == "demon" || log.testType == "withValue")
            ?.reverse()
    return ` 
          ${
            data.map((log, index) => {
-             if (log.testType == "event") {
+             if (log.testType == "event" || log.testType == "withValue") {
                let event = log; 
                return /*html */ `
-                     <details class="eventDetails">
-                        <summary>
+                     <details class="elementDetails">
+                        <summary ${index === 0 ? "style='padding-bottom: 24px;'" : ""}>
                            <img src="/assets/violet-right-arrow.svg" alt="Arrow Icon">
                            <span>${event.name}</span>
                            ${index===0 ? "<span class='tooltip'>(Dernier événement)</span>" : ""}
                         </summary>
-                        <div class="eventContent">
-                           <div class="eventDetail">
+                        <div class="elementContent">
+                           <div class="elementDetail">
                               <span style="font-weight: bold;">Détails de l'événement</span>
                               <div class="detailWrapper">
                                   ${event.boucle ? `<div class="rowInWrapper"><span>Boucle :</span><span>${event.boucle}</span></div>` : ""}
@@ -71,6 +71,7 @@ export default function statEventsDemonsWithValueSectionEventSection(gameData) {
                            `
                                : ""
                            }
+
                            <div class="metadonnéeDetail">
                               <span style="font-weight: bold;">Métadonnées</span>
                               <div class="detailWrapper">
@@ -79,6 +80,17 @@ export default function statEventsDemonsWithValueSectionEventSection(gameData) {
                                  
                               </div>
                            </div> 
+
+                           ${event.event?.withValue && event.event?.withValue.length > 0 ? /*html*/ `
+                              <div class=" ">
+                                 <span style="font-weight: bold;">Événement(s) appellé(s)</span>
+                                 <div class="detailWrapper">
+                                    ${event.event.withValue.map((withValueEventObject,index) => /*html*/ `
+                                       <div class="rowInWrapper"><span>Ordre ${index+1} :</span><span>${gameData.roomInDb.events.withValueEvent.find(event => event.id === withValueEventObject.id)?.name || "Unknown Event"}</span></div>
+                                    `).join("")}  
+                                 </div>
+                              </div> 
+                           ` : ""}
                         </div>
                      </details>
                      `;
