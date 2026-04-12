@@ -34,7 +34,7 @@ export function gameplay_identityContainer(
                         ? params.gainList
                             .map(
                               (gain) =>
-                                /*html */ `<div class="gain"><img src="${gain.image ? gain.image :"/assets/unknown-gain.svg"}" alt="Gain"><span >${player.gain.value[gain.id].value}</span></div>`,
+                                /*html */ `<div class="gain"><img src="${gain.image ? gain.image :"/assets/unknown-gain.svg"}" alt="Gain"><span >${player.gain.value[ gain.id ].value}</span></div>`,
                             )
                             .join("")
                         : ""

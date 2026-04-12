@@ -1,0 +1,198 @@
+.statGamePage {
+  .left {
+    .statEventsDemonsWithValueSection {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+
+      height: 100%;
+      gap: 15px;
+      > .boxContainer {
+        gap: 0;
+        font-size: 18px;
+        text-align: start;
+        max-height: 100%;
+        overflow-y: auto;
+        height: 100%;
+        gap: 12px;
+        .demonLine {
+          width: 100%;
+          text-align: center;
+          background: #ffffff;
+        }
+        .eventDetails {
+          background: #f9fafb;
+          border: 1px solid #e5e7eb;
+
+          width: 100%;
+          border-radius: 11px;
+          summary {
+            list-style: none;
+            display: flex;
+            position: relative;
+            flex-direction: row;
+            align-items: start;
+            justify-content: start;
+            gap: 4px;
+            padding: 10px;
+            cursor: pointer;
+            .tooltip {
+              font-size: 13px;
+              width: fit-content;
+              position: absolute;
+              right: 5px;
+              bottom: 5px;
+            }
+          }
+          .eventContent {
+            width: 100%;
+            padding: 10px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            box-sizing: border-box;
+            border-radius: 0 0 11px 11px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            > div {
+              display: flex;
+              flex-direction: column;
+              gap: 15px;
+              align-items: start;
+              .detailWrapper {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                gap: 8px;
+                width: 100%;
+                > .rowInWrapper {
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-between;
+                  width: 100%;
+                  > span:last-child {
+                    font-size: 15px;
+                    max-width: 60%;
+                    overflow-wrap: break-word;
+                    text-align: end;
+                  }
+                }
+              }
+            }
+
+            .modificationDetail {
+              .detailWrapper {
+                .diffDetail {
+                  display: flex;
+                  width: 100%;
+                  flex-direction: column;
+                  align-items: start;
+                  background: #f6f6f6;
+                  padding: 10px;
+                  border-radius: 10px;
+                  gap: 11px;
+                  box-sizing: border-box;
+                  > span {
+                    color: black;
+                    width: 100%;
+                    overflow: none;
+                    overflow-wrap: break-word;
+                  }
+                  > div {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: start;
+                    justify-content: space-between;
+                    width: 100%;
+                    gap: 23px;
+                    > img {
+                      width: 20px;
+                    }
+                    p {
+                      margin: 0;
+                    }
+                    > span:first-child {
+                      color: #880101;
+                    }
+                    > span:last-child {
+                      color: green;
+                    }
+                    > span {
+                      max-width: 40%;
+                      overflow-wrap: break-word;
+                      height: fit-content;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .statValueElement {
+          display: flex;
+          border: 1px solid #ededed;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 100%;
+          align-items: start;
+          background: #f9fafb;
+          gap: 9px;
+          padding: 10px;
+          box-sizing: border-box;
+          border-radius: 17px;
+          .spanTop {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            span:first-child {
+              font-weight: bold;
+              color: black;
+            }
+            > span:last-child {
+              background: #eceef2;
+              color: black;
+              padding: 5px 14px;
+              border-radius: 50px;
+              font-size: 15px;
+            }
+          }
+          > span {
+            width: 100%;
+            background: white;
+            border: 1px solid #e2e2e2;
+            color: #a8a8a8;
+            border-radius: 7px;
+            padding: 5px;
+            box-sizing: border-box;
+          }
+        }
+      }
+      .statEventsDemonsWithValueSection-navigation {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        gap: 15px;
+        background: white;
+        width: fit-content;
+        padding: 5px;
+        border-radius: 19px;
+        span {
+          cursor: pointer;
+          display: flex;
+          flex-direction: row;
+          justify-content: start;
+          gap: 5px;
+          font-size: 17px;
+          color: #3b3b3b;
+          padding: 7px 16px;
+          border-radius: 25px;
+        }
+        span.selected {
+          background: #ffe1f8;
+        }
+      }
+    }
+  }
+}

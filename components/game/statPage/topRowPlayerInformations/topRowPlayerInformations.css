@@ -26,8 +26,9 @@
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
+            gap: 15px;
             button {
-              width: 47%;
+              width: calc(50% - 7.5px);
               cursor: pointer;
               padding: 9px;
               font-size: 17px;
@@ -44,19 +45,39 @@
         display: flex;
         flex-direction: column;
         gap: 24px;
-        .playerStat {
-          box-sizing: border-box;
-          border-radius: 13px;
-          padding: 13px;
-          text-align: start;
-          width: 100%;
-          display: flex;
+        .row {
           display: flex;
           flex-direction: row;
-          flex-wrap: wrap;
-          span{
-
-    width: 50%;
+          justify-content: space-between;
+          align-items: stretch;
+          width: 100%;
+          gap: 15px;
+          .separator { 
+            width: 1px; 
+         
+                        background: #d0c3c3;
+                    }
+          .detailWrapper {
+            display: flex;
+            width: 40%;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            > .rowInWrapper {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              width: 100%;
+              > span:first-child {
+                font-size: 18px;
+              }
+              > span:last-child {
+                font-size: 15px;
+                max-width: 60%;
+                overflow-wrap: break-word;
+                text-align: end;
+              }
+            }
           }
         }
       }

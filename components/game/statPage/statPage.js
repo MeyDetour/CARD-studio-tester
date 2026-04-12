@@ -6,7 +6,7 @@ import { reloadComposant_gameplay_statEventsDemonsWithValueSection } from "./eve
 import {  reloadComposant_gameplayPage } from "../game/gameplayPage.js";
 import { reload_topRowPlayerInformations } from "./topRowPlayerInformations/topRowPlayerInformations.js";
 import gameplayPage from "../game/gameplayPage.js"; 
-
+import { button } from "../../button/button.js";
 export function statPage() {
 
     let view = getView();
@@ -19,6 +19,9 @@ export function statPage() {
 <div class="statGamePage">
     <div class="head" >
               <h2>${gameData.roomInDb.name}</h2> 
+              <div>
+                ${button(null,null,null,'exit',"Quitter","greyBorderButton")}
+              </div>
           </div> 
         <div class="row">
         <div class="left">

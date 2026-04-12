@@ -10,7 +10,10 @@ import { reloadComposant_gameplayPage } from "../../game/gameplayPage.js";
 export default function topRowPlayerInformations() {
   let view = getView();
   let gameData = getGameData();
-  let currentPlayer = getPlayerOfCurrentView(); 
+  let currentPlayer = getPlayerOfCurrentView();
+  let playersStat2 = getPlayerStat(currentPlayer, gameData); 
+  let playerStat1 = playersStat2.splice(Math.round(playersStat2.length / 2));
+ 
   return /*html*/ `    
             <div class="col">
                 <div class="boxContainer">
@@ -62,16 +65,26 @@ ${currentPlayer.actions.value
                         <h4>${currentPlayer.pseudo}</h4>
                         </h4> 
                   </div>
-                  <div class="playerStat">
-                       ${getPlayerStat(currentPlayer, gameData)
+                  <div class="row">
+                  <div class="detailWrapper">
+                       ${playerStat1
                          .map(
                            (stat) => `
-                                          <span>
-                                            ${stat.name} : ${stat.value}
-                                          </span>
+                           <div  class="rowInWrapper"><span>${stat.name} :</span><span>${stat.value}</span></div>
                                        `,
                          )
                          .join("")}  
+                  </div> 
+                  <div class="separator"></div>
+                    <div class="detailWrapper">
+                       ${playersStat2
+                         .map(
+                           (stat) => `
+                           <div  class="rowInWrapper"><span>${stat.name} :</span><span>${stat.value}</span></div>
+                                       `,
+                         )
+                         .join("")}  
+                  </div>
                   </div>
                     
              

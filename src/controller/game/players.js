@@ -1,6 +1,7 @@
 import { spookySkins } from "../../../data/spookySkins.js";
 import { getGameData, getView } from "./dataStorage.js";
 import { players } from "../../main.js";
+import { getTextualValueOfCard } from "./cards.js";
 export function isPassifPlayer(player) {
   return (
     player.isSpectator?.value || player.haswin?.value || player.hasloose?.value
@@ -9,10 +10,21 @@ export function isPassifPlayer(player) {
 export function getPlayerStat(player, gameData) {
   let arrayOfStat = [];
   for (let key in player) {
-    if (key == "skin" || key ==="actions" || key =="socketID") {
+    if (key == "skin" || key === "actions" || key == "socketID") {
       continue;
     }
-    
+    if (key == "handDeck" || key =="personalHandDeck" || key=="personalHandDiscard") {
+      arrayOfStat.push({
+        name: key,
+        value: player[key].value.map((cardId) =>
+          gameData.roomInDb.assets.cards[cardId].type == "french_standard"
+            ? getTextualValueOfCard(gameData.roomInDb.assets.cards[cardId])
+            : gameData.roomInDb.assets.cards[cardId].name,
+        ),
+      });
+      continue;
+    }
+
     if (key == "gain") {
       for (let gainKey of Object.keys(player.gain?.value)) {
         let gainObject = gameData.roomInDb.assets.gains.find(
@@ -28,7 +40,7 @@ export function getPlayerStat(player, gameData) {
       continue;
     }
 
-    if (player[key]  ) {
+    if (player[key]) {
       arrayOfStat.push({ name: key, value: player[key].value ?? player[key] });
     }
   }
@@ -55,6 +67,8 @@ export function getPlayerOfCurrentView() {
   if (!gameData || !gameData.data || !gameData.data.players) {
     console.warn("Invalid gameData structure:", gameData);
     return null;
-  } 
-  return gameData.data.players.find((player) => player.position == view.playerView);
+  }
+  return gameData.data.players.find(
+    (player) => player.position == view.playerView,
+  );
 }

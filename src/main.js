@@ -57,6 +57,11 @@ const disconnectAndReconnect = () => {
 const redirectToCardStudio = () => {
   window.location.href = env.CARD_STUDIO_FRONT_END_URL;
 };
+const exit = () => {
+  disconnectAndReconnect()
+  window.close();
+};
+window.exit = exit;
 window.redirectToCardStudio = redirectToCardStudio;
 const handleMessage = (event) => {
   if (token || gameId) return;
