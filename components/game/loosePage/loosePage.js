@@ -2,11 +2,11 @@ import { button } from "../../button/button.js";
 import { 
   getGameData,
 } from "../../../src/controller/game/dataStorage.js";
-import { getPlayerWhoHasToPlayer } from "../../../src/controller/game/players.js";
+import { getPlayerOfCurrentView, getPlayerWhoHasToPlayer } from "../../../src/controller/game/players.js";
 
 
 export function loosePage() {
-  let currentPlayer = getPlayerWhoHasToPlayer();
+  let currentPlayer = getPlayerOfCurrentView();
   let gameData = getGameData();
   if (!gameData) {
     displayError("No game data found to display win page");
@@ -16,7 +16,8 @@ export function loosePage() {
     displayError("No current player found to display loose page");
     return null;
   }
- if (currentPlayer.haswin.value === true || currentPlayer.isSpectator.value == true) {
+
+ if ( !gameData.data?.losers?.value.some((loser) => loser.id === currentPlayer.id)  )   {
     return null;
   }
   // pas besoin de verifier que la partie soit finie
@@ -65,7 +66,7 @@ export function loosePage() {
             ? `<p>Gagnants : ${gameData.data.winners
                 .map((winner) => winner.pseudo)
                 .join(", ")}</p>`
-            : `<p>Gagnant : ${gameData.data.winners[0].pseudo}</p>`
+            : `<p>Gagnant : ${gameData.data.winners.value[0].pseudo}</p>`
         }
 
      
@@ -94,9 +95,10 @@ export function loosePage() {
 }
 
 export function reloadComposant_loosePage() {
-  let content = document.querySelector("#content");
+  let content = document.querySelector("#gameplayPage");
   let page = loosePage(); 
   if (content && page) {
     content.innerHTML = page;
+    console.log("LOOSE PAGE LOADED")
   }
 }

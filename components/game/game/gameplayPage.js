@@ -134,11 +134,9 @@ export function reloadComposant_gameplayPage() {
     displayError("No game data found to display game");
     return;
   }
-  if (gameData.data.state.value !== "inProgress") {
-    console.log("room is not in progress");
-    console.log(gameData.data.state.value);
+  if (gameData.data.state.value !== "inProgress") { 
     return;
-  }
+  } 
 
   let content = document.querySelector("#gameplayPage");
   if (!content) {
@@ -149,6 +147,9 @@ export function reloadComposant_gameplayPage() {
   let currentPlayer = getPlayerOfCurrentView(); 
   if (!currentPlayer) {
     displayError("No current player found to display game");
+    return;
+  }
+  if ((currentPlayer.haswin.value || currentPlayer.hasloose.value) && !currentPlayer.isSpectator.value) {
     return;
   }
 

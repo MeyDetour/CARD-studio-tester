@@ -4,7 +4,7 @@ import "./controller/error.js";
 import "./controller/game/actions.js";
 import "./controller/game/louancher.js";
 import "./helpers/copy.js";
-import "./controller/game/spectactor.js"; 
+import "./controller/game/spectactor.js";
 import "./controller/game/players.js";
 import { apiClient } from "./helpers/api.js";
 import { env } from "../env.js";
@@ -18,10 +18,10 @@ import {
   deleteToken,
   deleteGameId,
 } from "./controller/game/dataStorage.js";
-export let token = getToken() || null;
-export let gameId = getGameId() || null;
+export let token = null;
+export let gameId = null;
 export let players = [];
-localStorage.removeItem("askPlayer")
+localStorage.removeItem("askPlayer");
 const getGame = async () => {
   try {
     let gameInDB = await apiClient("api/game/" + gameId, null, {
@@ -58,7 +58,7 @@ const redirectToCardStudio = () => {
   window.location.href = env.CARD_STUDIO_FRONT_END_URL;
 };
 const exit = () => {
-  disconnectAndReconnect()
+  disconnectAndReconnect();
   window.close();
 };
 window.exit = exit;
@@ -69,6 +69,7 @@ const handleMessage = (event) => {
     return;
   }
 
+  console.log("RECEIVE DATA FROM CARD STUDIO");
   token = event.data.token;
   gameId = event.data.gameId;
 
@@ -86,17 +87,23 @@ const initApp = async () => {
 
   // 2 - wait for message from card studio with token and gameId to start the app
   window.addEventListener("message", handleMessage);
-
+  console.log("add before unload");
   // 1 - response if card studio call test app
   if (window.opener && !token && !gameId) {
     window.opener.postMessage("READY_FOR_TOKEN", env.CARD_STUDIO_FRONT_END_URL);
   }
 
   // 4 - if page is reloaded and token and gameId are already in localStorage, start the app
-  if (token && gameId) {
-    getGame();
-    return;
-  }
+  // wait 3 seconds to receive token and gameId from card studio in case of page reload, if not received, try to get them from localStorage and start the app, if not found, stay on loading screen
+  setTimeout(() => {
+    if (!token && !gameId) {
+      console.log("CONNECT WITH STORAGE");
+      token = getToken();
+      gameId = getGameId();
+      getGame();
+      return;
+    }
+  }, 3000);
 
   loadRoute({ path: "/" });
 };

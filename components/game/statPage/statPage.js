@@ -6,7 +6,10 @@ import { reloadComposant_gameplay_statEventsDemonsWithValueSection } from "./eve
 import {  reloadComposant_gameplayPage } from "../game/gameplayPage.js";
 import { reload_topRowPlayerInformations } from "./topRowPlayerInformations/topRowPlayerInformations.js";
 import gameplayPage from "../game/gameplayPage.js"; 
+import { reloadComposant_loosePage } from "../loosePage/loosePage.js";
+import { reloadComposant_winPage } from "../winPage/winPage.js";
 import { button } from "../../button/button.js";
+import { players } from "../../../src/main.js";
 export function statPage() {
 
     let view = getView();
@@ -20,6 +23,7 @@ export function statPage() {
     <div class="head" >
               <h2>${gameData.roomInDb.name}</h2> 
               <div>
+                ${button(null,null,null,'replay',"Relancer","greyBorderButton")}
                 ${button(null,null,null,'exit',"Quitter","greyBorderButton")}
               </div>
           </div> 
@@ -47,6 +51,7 @@ export function statPage() {
 
 export function reloadComposant_StatPage() {
   console.log("=====RELOAD STATT PAGE==========");
+  console.log(players);
   let gameData = getGameData();
   console.log(gameData);
   if (!gameData) {
@@ -65,5 +70,8 @@ export function reloadComposant_StatPage() {
     gameData,
     getView(),
   );
-  reloadComposant_gameplayPage();
+ 
+  reloadComposant_winPage();
+  reloadComposant_loosePage(); 
+    reloadComposant_gameplayPage(); 
 }

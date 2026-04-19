@@ -29,6 +29,13 @@
     align-items: center;
         justify-content: space-between;
     border-bottom: 1px solid #e5e7eb;
+    >div{
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      justify-content: space-between;
+      
+    }
   }
   .boxContainer {
     display: flex;

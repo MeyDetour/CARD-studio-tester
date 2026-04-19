@@ -7,6 +7,8 @@ import { getPlayerOfCurrentView, getSocketOfPlayerOfCurrentView } from "../../..
 import { getPlayerStat } from "../../../../src/controller/game/players.js";
 import { reloadComposant_gameplayPage } from "../../game/gameplayPage.js";
 import { button } from "../../../button/button.js";
+import { reloadComposant_winPage } from "../../winPage/winPage.js";
+import { reloadComposant_loosePage } from "../../loosePage/loosePage.js";
 
 export default function topRowPlayerInformations() {
   let view = getView();
@@ -100,6 +102,9 @@ export function changeCurrentView(e) {
   storeView(view);
   reload_topRowPlayerInformations();
   reloadComposant_gameplayPage();
+
+    reloadComposant_winPage();
+    reloadComposant_loosePage();
 }
 window.changePlayerView = changeCurrentView;
 

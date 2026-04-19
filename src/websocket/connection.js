@@ -15,8 +15,8 @@ export async function connectSocket(gameInDB={}) {
  
   let socket = io(env.CARD_STUDIO_WEBSOCKET_URL);
   
-
   if (players.length === 0) {
+    console.log("CREATE ROOM");
     socket.emit("createRoom", {
       gameInDB,
       pseudo: "Player 1",
@@ -26,6 +26,8 @@ export async function connectSocket(gameInDB={}) {
   }else{
       socket.emit("joinRoom", { roomId : getRoomId(), pseudo : "Player "+(players.length+1),skin : getRandomSkin() });
   }
+
+  console.log(players);
   //===============GAME MANAGEMENT=============
   gameManagementListen(socket);
  
