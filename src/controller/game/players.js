@@ -49,7 +49,7 @@ export function getPlayerStat(player, gameData) {
     }
 
     if (player[key]) {
-      arrayOfStat.push({ name: key, value: player[key].value ?? player[key] });
+      arrayOfStat.push({ name: key, value: player[key].value  != undefined?? player[key] });
     }
   }
 

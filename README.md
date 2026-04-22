@@ -4,8 +4,9 @@ il y a deux applications :
 - CARD Studio qui permet de créer des jeux de cartes personnalisés, en modifiant n’importe quel élément du jeu et/ou paramètre de la logique.
 - Quant à CARD Games, il permet d’accueillir les joueurs ; ils arrivent sur une interface leur permettant de se connecter avec un code et ils rejoignent un menu leur demandant leur pseudo. Ils peuvent sinon choisir de créer une partie parmi plusieurs jeux publics proposés. Dans le cas où un utilisateur de CARD Studio a créé un jeu complet en privé, il obtiendra un code unique. Sur CARD Games, les joueurs pourront alors créer une partie à partir d’un code d’un jeu et non d’un jeu public.
 
+
 # L'application
-CARD Games est une interface web multijoueur qui permet de créer ou rejoindre facilement une partie de cartes. L’utilisateur peut soit entrer un code de room partagé par un hôte, soit choisir un jeu public dans le catalogue puis créer une room en renseignant son pseudo. L’application se connecte en WebSocket pour synchroniser en temps réel l’état de la partie (arrivée/départ des joueurs, mise à jour de la room, transitions de jeu) et inclut une salle d’attente avec partage du code et messagerie instantanée. L’architecture front-end est modulaire (pages, composants, contrôleurs), ce qui facilite l’intégration de nouveaux jeux et l’évolution des fonctionnalités.
+CARD Studio tester est une application module de CARD Studio, elle permet aux utilisateurs de tester directement la configuration de leur jeu en ayant la vision sur tous les démons et événements utilisés. Ils ont accès aussi à la vue de chaque utilisateur et peuvent contrôler leurs actions et voir les données relatives.
 
 # Stack technique 
 - JavaScript (ES Modules) : langage principal du front-end et de la logique d’interface.
@@ -46,37 +47,49 @@ CARD Games est une interface web multijoueur qui permet de créer ou rejoindre f
  
 ```mermaid
 sequenceDiagram
-    participant C as Créateur (Front-end)
-    participant J as Joueurs (Amis)
-    participant Node as Serveur Node.js (Websocket)
-    participant Sym as API Symfony (Config)
+    participant CS as Card Studio (Main App)
+    participant Front as Studio Tester (Front)
+    participant API as API (Authentification & Data)
+    participant WS as Serveur Websocket
 
-    Note over C, Node: Phase de Création de la Room
-    C->>Sym: Récupération de la configuration du jeu
-    Sym-->>C: Données de config (JSON)
-    C->>Node: Création de Room + Envoi de la config
-    Node-->>C: Confirmation + Room ID (Code)
-
-    Note over J, Node: Phase de Connexion des Joueurs
-    C->>J: Partage du code de la partie
-    J->>Node: Rejoint la partie (Code)
-    Node-->>J: Signal : Connexion validée
-    Node-->>C: Signal : Nouveau joueur connecté
-
-    Note over C, Node: Lancement et Gameplay
-    C->>Node: Lancer la partie
+    Note over CS, Front: Phase d'Initialisation & Auth
+    CS->>Front: Ouvre Tester avec Token + Game ID
+    activate Front
+    Front->>Front: Stocke Token + ID (Storage)
+    Front->>API: Requête GET données Game (avec Token)
     
-    loop Logique de jeu (Temps réel)
-        Node->>Node: Traitement de la logique (State machine)
-        Node-->>C: Update : Nouvel état du jeu
-        Node-->>J: Update : Nouvel état du jeu
+    alt Token Invalide / Expiré
+        API-->>Front: Erreur 401 (Unauthorized)
+        Front-->>CS: Redirection pour Reconnexion
+        deactivate Front
+    else Token Valide
+        API-->>Front: Données de la Game (JSON)
+        activate Front
+    
+        Note over Front, WS: Connexion & Création Test
+        Front->>WS: Connexion + Demande création session "test"
+        WS-->>Front: Confirmation Session Créée
         
-        Note right of J: Action du joueur
-        J->>Node: Envoi d'une action (Move/Click)
-        Node->>Node: Calcul des conséquences
-        Node-->>C: Broadcast : Mise à jour de la partie
-        Node-->>J: Broadcast : Mise à jour de la partie
+        Note right of Front: L'utilisateur configure la simulation<br/>(ex: ajout de bots/joueurs fictifs)
+   
+        Note over Front, WS: Lancement du Test
+        Front->>WS: Lancer la partie de test
+        WS->>WS: Initialisation State Machine (Test mode)
+        WS-->>Front: Update : État initial complet
     end
+
+    loop Boucle de Test (Temps réel)
+        Note right of Front: Action de test de l'utilisateur
+        Front->>WS: Envoi action simulée (Joueur X)
+        WS->>WS: Calcul logique
+        WS-->>Front: Broadcast : Nouvel état du jeu
+    end
+
+    Note over Front, WS: Gestion du Refresh (F5)
+    Note right of Front: L'utilisateur rafraîchit la page
+    Front->>Front: Récupère Token + ID du Storage
+    Front->>WS: Reconnexion à la session "test" existante
+    WS-->>Front: Update : État actuel du jeu
 
 ```
 

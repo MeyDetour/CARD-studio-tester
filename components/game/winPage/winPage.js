@@ -44,9 +44,9 @@ export function winPage() {
       ${particlesHTML}
       </div>
       <img src="/assets/images/victory.png" alt="Victory" class="victory-image">
-      ${gameData.data.winners && gameData.data.winners[0] ? `<img class="firstPlayerOnPodium" src="/assets/images/spooky-skins/${gameData.data.winners[0]?.skin.name}.png" alt="Victory" class="victory-image">` : ""}
-      ${gameData.data.winners && gameData.data.winners[1] ? `<img class="secondPlayerOnPodium" src="/assets/images/spooky-skin.names/${gameData.data.winners[1]?.skin.name}.png" alt="Victory" class="victory-image">` : ""}
-      ${gameData.data.winners && gameData.data.winners[2] ? `<img class="thirdPlayerOnPodium" src="/assets/images/spooky-skin.names/${gameData.data.winners[2]?.skin.name}.png" alt="Victory" class="victory-image">` : ""}
+      ${gameData.data.winners?.value && gameData.data.winners?.value[0] ? `<img class="firstPlayerOnPodium" src="/assets/images/spooky-skins/${gameData.data.winners?.value[0]?.skin.name}.png" alt="Victory" class="victory-image">` : ""}
+      ${gameData.data.winners?.value && gameData.data.winners?.value[1] ? `<img class="secondPlayerOnPodium" src="/assets/images/spooky-skin.names/${gameData.data.winners?.value[1]?.skin.name}.png" alt="Victory" class="victory-image">` : ""}
+      ${gameData.data.winners?.value && gameData.data.winners?.value[2] ? `<img class="thirdPlayerOnPodium" src="/assets/images/spooky-skin.names/${gameData.data.winners?.value[2]?.skin.name}.png" alt="Victory" class="victory-image">` : ""}
       <div class="buttonContainers">
           
 
