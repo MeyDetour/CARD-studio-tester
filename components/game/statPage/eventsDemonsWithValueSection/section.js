@@ -3,7 +3,7 @@ import {
   getView,
   storeView,
 } from "../../../../../src/controller/game/dataStorage.js";
-import statEventsDemonsWithValueSectionLogsSection from "./logs.js";
+import statEventsDemonsWithValueSectionParamsSection from "./params.js";
 import statEventsDemonsWithValueSectionValueSection from "./value.js";
 import statEventsDemonsWithValueSectionEventsSection from "./events.js";
 import statEventsDemonsWithValueSectionDemonSection from "./demons.js";
@@ -17,7 +17,7 @@ export default function gameplay_statEventsDemonsWithValueSection(
                    <span onclick="changeSubpageOfStatEventsDemonsWithValueSection('value')" class="${view.statEventsDemonsWithValue == "value" ? "selected" : ""}">Variable</span>
                    <span onclick="changeSubpageOfStatEventsDemonsWithValueSection('events')" class="${view.statEventsDemonsWithValue == "events" ? "selected" : ""}">Événements</span>
                    <span onclick="changeSubpageOfStatEventsDemonsWithValueSection('demons')" class="${view.statEventsDemonsWithValue == "demons" ? "selected" : ""}">Démons</span>
-                   <span onclick="changeSubpageOfStatEventsDemonsWithValueSection('logs')" class="${view.statEventsDemonsWithValue == "logs" ? "selected" : ""}">Journaux</span>
+                   <span onclick="changeSubpageOfStatEventsDemonsWithValueSection('params')" class="${view.statEventsDemonsWithValue == "params" ? "selected" : ""}">Paramètres</span>
                 </div>
                 <div class="boxContainer">
                         ${
@@ -33,8 +33,8 @@ export default function gameplay_statEventsDemonsWithValueSection(
                                 ? statEventsDemonsWithValueSectionDemonSection(
                                     gameData,
                                   )
-                                : view.statEventsDemonsWithValue == "logs"
-                                  ? statEventsDemonsWithValueSectionLogsSection(
+                                : view.statEventsDemonsWithValue == "params"
+                                  ? statEventsDemonsWithValueSectionParamsSection(
                                       gameData,
                                     )
                                   : ""

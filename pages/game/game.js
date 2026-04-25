@@ -62,7 +62,7 @@ export function reloadComposant_gamePage() {
   if (
     (gameData.data.state.value == "endOfGame" ||
       currentPlayer.haswin.value === true) &&
-    currentPlayer.isSpectator.value !== true
+    gameData.data.spectators.some(spectator => spectator.id === currentPlayer.id) !== true
   ) {
     incrementePlayerCount(gameData.roomInDb.id);
     console.log("reload win/lose page");
@@ -71,7 +71,7 @@ export function reloadComposant_gamePage() {
   if (
     (gameData.data.state.value == "endOfGame" ||
       currentPlayer.hasloose.value === true) &&
-    currentPlayer.isSpectator.value !== true
+    gameData.data.spectators.some(spectator => spectator.id === currentPlayer.id) !== true
   ) {
     incrementePlayerCount(gameData.roomInDb.id);
     console.log("reload win/lose page");

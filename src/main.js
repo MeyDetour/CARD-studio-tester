@@ -51,15 +51,14 @@ const disconnectAndReconnect = () => {
     //window.close();
   } else {
     // Si la fenêtre a été ouverte seule, on redirige juste
-    alert("Session expirée, veuillez repasser par Card Studio.");
-  }
+      }
 };
 const redirectToCardStudio = () => {
   window.location.href = env.CARD_STUDIO_FRONT_END_URL;
 };
 const exit = () => {
   disconnectAndReconnect();
-  window.close();
+  location.reload()
 };
 window.exit = exit;
 window.redirectToCardStudio = redirectToCardStudio;

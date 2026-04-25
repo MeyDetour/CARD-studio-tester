@@ -9,6 +9,7 @@ import { reloadComposant_gameplayPage } from "../../game/gameplayPage.js";
 import { button } from "../../../button/button.js";
 import { reloadComposant_winPage } from "../../winPage/winPage.js";
 import { reloadComposant_loosePage } from "../../loosePage/loosePage.js";
+import { displayError } from "../../../../src/controller/error.js";
 
 export default function topRowPlayerInformations() {
   let view = getView();
@@ -16,7 +17,10 @@ export default function topRowPlayerInformations() {
   let currentPlayer = getPlayerOfCurrentView();
   let playersStat2 = getPlayerStat(currentPlayer, gameData);
   let playerStat1 = playersStat2.splice(Math.round(playersStat2.length / 2));
-
+if (!currentPlayer) {
+    displayError("No current player found to display game");
+    return "";
+  }
   return /*html*/ `    
             <div class="col">
                 <div class="boxContainer">
@@ -31,6 +35,13 @@ export default function topRowPlayerInformations() {
                             .map(
                               (player) => /*html*/ `
                             <option ${player.position === view.playerView ? "selected" : ""} value="${player.position}">${player.pseudo}</option>
+                          `,
+                            )
+                            .join("")} 
+                             ${gameData.data.spectators
+                            .map(
+                              (player) => /*html*/ `
+                            <option ${player.position === view.playerView ? "selected" : ""} value="${player.position}">${player.pseudo} (Spectateur)</option>
                           `,
                             )
                             .join("")} 

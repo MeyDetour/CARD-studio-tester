@@ -3,8 +3,15 @@ import { getGameData, getView } from "./dataStorage.js";
 import { players } from "../../main.js";
 import { getTextualValueOfCard } from "./cards.js";
 export function isPassifPlayer(player) {
+  let gameData = getGameData();
+  if (!gameData) {
+    console.warn("No game data found to determine if player is passif");
+    return false;
+  }
   return (
-    player.isSpectator?.value || player.haswin?.value || player.hasloose?.value
+    gameData.data.spectators.some(spectator => spectator.id === player.id) ||
+    player.haswin?.value ||
+    player.hasloose?.value
   );
 }
 export function getPlayerStat(player, gameData) {

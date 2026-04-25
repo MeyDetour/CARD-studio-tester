@@ -1,6 +1,6 @@
 import { button } from "../../button/button.js";
 import { getPlayerOfCurrentView, getPlayerWhoHasToPlayer } from "../../../src/controller/game/players.js";
-
+import { displayError } from "../../../src/controller/error.js";
 import { getGameData } from "../../../src/controller/game/dataStorage.js";
 export function winPage() {
   let currentPlayer = getPlayerOfCurrentView();
@@ -14,8 +14,7 @@ export function winPage() {
     return null;
   }
   if (
-    currentPlayer.haswin.value !== true ||
-    currentPlayer.isSpectator.value == true
+    currentPlayer.haswin.value !== true 
   ) {
     return null;
   }

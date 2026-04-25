@@ -4,6 +4,7 @@ export default function statEventsDemonsWithValueSectionValueSection(gameData){
     return /*html*/ `
         <div class="statValueElement"><div class="spanTop"><span>State</span><span>String</span></div><span>${gameData.data.state.value}</span></div>
         <div class="statValueElement"><div class="spanTop"><span>Players</span><span>Player Array</span></div><span>${gameData.data.players.map(player => player.pseudo).join(", ")}</span></div>
+        <div class="statValueElement"><div class="spanTop"><span>Spectators</span><span>Spectator Array</span></div><span>${gameData.data.spectators.map(player => player.pseudo).join(", ")}</span></div>
         <div class="statValueElement"><div class="spanTop"><span>Player Turn Position</span><span>Number</span></div><span>${gameData.data.currentPlayerPosition?.value}</span></div>
         <div class="statValueElement"><div class="spanTop"><span>Tour</span><span>Number</span></div><span>${gameData.data.tour}</span></div>
         <div class="statValueElement"><div class="spanTop"><span>Manche</span><span>Number</span></div><span>${gameData.data.manche}</span></div>

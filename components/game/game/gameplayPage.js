@@ -149,7 +149,7 @@ export function reloadComposant_gameplayPage() {
     displayError("No current player found to display game");
     return;
   }
-  if ((currentPlayer.haswin.value || currentPlayer.hasloose.value) && !currentPlayer.isSpectator.value) {
+  if ((currentPlayer.haswin.value || currentPlayer.hasloose.value) ) {
     return;
   }
 

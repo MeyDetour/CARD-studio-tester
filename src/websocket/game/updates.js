@@ -16,7 +16,7 @@ export function gameUpdatesListen(socket) {
     
       socket.on("gameChanges", ({ gameData, currentPlayer }) => {
         console.log("RECEIVE GAME CHANGES :>>", { gameData, currentPlayer });
-       
+        
         storeGameData(gameData);
         reloadComposant_StatPage();
       });

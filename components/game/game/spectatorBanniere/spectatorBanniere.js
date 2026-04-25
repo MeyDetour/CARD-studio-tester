@@ -1,9 +1,16 @@
 import { button } from "../../../button/button.js";
+import { getGameData, getView } from "../../../../src/controller/game/dataStorage.js";
 export function gameplay_spectatorBanniere( 
   currentPlayer
 ) {
-  if (currentPlayer.isSpectator.value != true) {
+
+  let gameData = getGameData();
+  if (!gameData) {
+    displayError("No game data found to display game");
     return "";
+  }
+  if (!gameData.data.spectators.some(spectator => spectator.id === currentPlayer.id)) {
+    return null;
   }
   return /*html */ `
    <div class="spectatorBanniere">

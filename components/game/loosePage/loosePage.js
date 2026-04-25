@@ -3,7 +3,7 @@ import {
   getGameData,
 } from "../../../src/controller/game/dataStorage.js";
 import { getPlayerOfCurrentView, getPlayerWhoHasToPlayer } from "../../../src/controller/game/players.js";
-
+import { displayError } from "../../../src/controller/error.js";
 
 export function loosePage() {
   let currentPlayer = getPlayerOfCurrentView();

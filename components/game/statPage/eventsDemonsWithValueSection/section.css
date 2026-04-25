@@ -194,6 +194,102 @@
           background: #ffe1f8;
         }
       }
+      .statEventsDemonsWithValueSectionParamsSection-logs,
+      .statEventsDemonsWithValueSectionParamsSection-players {
+        cursor: pointer;
+        width: 100%;
+        border: 1px solid #ebebeb;
+        border-radius: 10px;
+        background: #fff3fe;
+        summary{
+          width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        }
+        > div {
+
+        box-sizing: border-box;
+        padding: 15px;  
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+        }
+      }
+      .statEventsDemonsWithValueSectionParamsSection-logs {
+        > div {
+          gap: 0;
+        }
+      }
+      .statEventsDemonsWithValueSectionParamsSection-players {
+        .playerConfig {
+          width: 100%;
+          background: white;
+          border-radius: 13px;
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          padding: 10px;
+          box-sizing: border-box;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+
+          display: flex;
+          flex-direction: row;
+          align-items: start;
+          justify-content: start;
+          gap: 15px;
+          .imageContainer {
+            width: 48px;
+            aspect-ratio: 1 / 1;
+            border: 1px solid grey;
+            clip-path: border-box;
+            overflow: none;
+            border-radius: 50%;
+            position: relative;
+            img {
+              width: 132%;
+              object-fit: contain;
+              position: absolute;
+              left: 50%;
+              transform: translate(-50%);
+              top: 0;
+            }
+          }
+          > div {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            .linkApparence {
+              color: #ef2121;
+              font-size: 15px;
+            }
+          }
+        }
+        .addButton {
+          background: white;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          padding: 9px; 
+          text-align: center;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          border-radius: 10px;
+          width: 100%;
+          box-sizing: border-box;
+          gap: 23px;
+          font-size: 16px;
+          font-weight: normal;
+          color: black;
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+        .addButton:hover {
+          background: rgba(255, 255, 255, 0.836);
+        }
+      }
     }
   }
 }
