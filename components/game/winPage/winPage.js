@@ -7,19 +7,19 @@ export function winPage() {
   let gameData = getGameData();
   if (!gameData) {
     displayError("No game data found to display win page");
-    return null;
+    return "";
   }
   if (!currentPlayer) {
     displayError("No current player found to display win page at win page");
-    return null;
+    return "";
   }
   if (
     currentPlayer.haswin.value !== true 
   ) {
-    return null;
+    return "";
   }
  if ( !gameData.data?.winners?.value?.some((winner) => winner.id === currentPlayer.id) )   {
-    return null;
+    return "";
   }
   // pas besoin de verifier que la partie soit finie
   // car certains joueuers peuvent gagner avant la fin

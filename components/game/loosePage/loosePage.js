@@ -10,15 +10,15 @@ export function loosePage() {
   let gameData = getGameData();
   if (!gameData) {
     displayError("No game data found to display win page");
-    return null;
+    return "";
   }
   if (!currentPlayer) {
     displayError("No current player found to display loose page");
-    return null;
+    return "";
   }
 
  if ( !gameData.data?.losers?.value.some((loser) => loser.id === currentPlayer.id)  )   {
-    return null;
+    return "";
   }
   // pas besoin de verifier que la partie soit finie
   // car certains joueuers peuvent perdre avant la fin 

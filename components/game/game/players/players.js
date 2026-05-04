@@ -13,7 +13,8 @@ export function gameplay_displayAllPlayers(gameData, currentPlayer) {
   let params = gameData.roomInDb.params.rendering.game;
 
   return /*html */ ` 
-        ${gameplay_identityContainer(currentPlayer, {
+       
+         ${!gameData.data.spectators.some(spectator => spectator.id === currentPlayer.id) ? gameplay_identityContainer(currentPlayer, {
           key: 0,
           displayPoints: params.displayStatistics,
           dislayCardCount: params.displayCountAdversaryHandDeck,
@@ -22,7 +23,7 @@ export function gameplay_displayAllPlayers(gameData, currentPlayer) {
           isCurrentPlayerTurn:
             gameData.data.currentPlayerPosition.value ===
             currentPlayer.position,
-        })}
+        }) : ""}
             ${players
               .map((player, key) =>
                 gameplay_identityContainer(player, {

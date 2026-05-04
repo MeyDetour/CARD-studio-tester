@@ -5,7 +5,7 @@ import {
   getView,
 } from "../../../src/controller/game/dataStorage.js";
 import { getPlayerStat } from "../../../src/controller/game/players.js";
-import { displayError } from "../../../src/controller/error.js"; 
+import { displayError } from "../../../src/controller/error.js";
 import { gameplay_displayAllPlayers } from "./players/players.js";
 import {
   gameplay_handdeck,
@@ -33,7 +33,7 @@ export default function gameplayPage() {
   const excludeFieldOfPlayer = ["socket", "handDeck", "socketID"];
 
   let view = getView();
-  let currentPlayer = getPlayerOfCurrentView(); 
+  let currentPlayer = getPlayerOfCurrentView();
   let gameData = getGameData();
   if (!gameData) {
     displayError("No game data found to display game");
@@ -74,39 +74,38 @@ export default function gameplayPage() {
             ${gameplay_handdeck(params.displayHandDeck, handDeck, cardList)}
             ${gameplay_spectatorBanniere(currentPlayer)}
             
-            ${gameplay_cardPile(
-              cardParams,
-              actionOnDeck
-                ? {
-                    playerId: currentPlayer.id,
-                    roomId: gameData.roomId,
-                    action: actionOnDeck ? actionOnDeck.name : null,
-                    actionType: actionOnDeck
-                      ? actionOnDeck.type || "default"
-                      : "default",
-                  }
-                : null,
-              "deck",
-              "Pioche",
-            )}
-            ${gameplay_cardPile(
-              cardParams,
-              actionOnDiscardDeck
-                ? {
-                    playerId: currentPlayer.id,
-                    roomId: gameData.roomId,
-                    action: actionOnDiscardDeck
-                      ? actionOnDiscardDeck.name
-                      : null,
-                    actionType: actionOnDiscardDeck
-                      ? actionOnDiscardDeck.type || "default"
-                      : "default",
-                  }
-                : null,
-              "discardDeck",
-              "Défausse",
-            )}
-            
+
+      ${gameplay_cardPile(
+        cardParams,
+        actionOnDeck
+          ? {
+              playerId: currentPlayer.id,
+              roomId: gameData.roomId,
+              action: actionOnDeck ? actionOnDeck.name : null,
+              actionType: actionOnDeck
+                ? actionOnDeck.type || "default"
+                : "default",
+            }
+          : null,
+        "deck",
+        "Pioche",
+      )}
+          ${gameplay_cardPile(
+            cardParams,
+            actionOnDiscardDeck
+              ? {
+                  playerId: currentPlayer.id,
+                  roomId: gameData.roomId,
+                  action: actionOnDiscardDeck ? actionOnDiscardDeck.name : null,
+                  actionType: actionOnDiscardDeck
+                    ? actionOnDiscardDeck.type || "default"
+                    : "default",
+                }
+              : null,
+            "discardDeck",
+            "Défausse",
+          )}
+       
             
             ${gameplay_actionsButtons(
               playerActions.filter(
@@ -134,9 +133,9 @@ export function reloadComposant_gameplayPage() {
     displayError("No game data found to display game");
     return;
   }
-  if (gameData.data.state.value !== "inProgress") { 
+  if (gameData.data.state.value !== "inProgress") {
     return;
-  } 
+  }
 
   let content = document.querySelector("#gameplayPage");
   if (!content) {
@@ -144,12 +143,12 @@ export function reloadComposant_gameplayPage() {
     return;
   }
 
-  let currentPlayer = getPlayerOfCurrentView(); 
+  let currentPlayer = getPlayerOfCurrentView();
   if (!currentPlayer) {
     displayError("No current player found to display game");
     return;
   }
-  if ((currentPlayer.haswin.value || currentPlayer.hasloose.value) ) {
+  if (currentPlayer.haswin.value || currentPlayer.hasloose.value) {
     return;
   }
 

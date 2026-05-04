@@ -37,7 +37,7 @@ export function testConfigPage(params = {}) {
                                       "disconnectSocket",
                                       "Remove",
                                       "linkApparence",
-                                      { index: index },
+                                      { id: player.id },
                                     )
                                   : ""
                               }

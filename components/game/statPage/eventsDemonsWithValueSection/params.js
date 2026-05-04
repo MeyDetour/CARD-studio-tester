@@ -33,7 +33,7 @@ export default function statEventsDemonsWithValueSectionParamsSection(
                     "disconnectSocket",
                     "Remove",
                     "linkApparence",
-                    { index: index },
+                    { id: player.id },
                   )
                 : ""
             }
@@ -55,7 +55,7 @@ export default function statEventsDemonsWithValueSectionParamsSection(
                     "disconnectSocket",
                     "Remove",
                     "linkApparence",
-                    { index: index },
+                    { id: player.id },
                   )
                 : ""
             }

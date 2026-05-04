@@ -9,7 +9,7 @@ export function isPassifPlayer(player) {
     return false;
   }
   return (
-    gameData.data.spectators.some(spectator => spectator.id === player.id) ||
+    gameData.data.spectators.some((spectator) => spectator.id === player.id) ||
     player.haswin?.value ||
     player.hasloose?.value
   );
@@ -20,7 +20,11 @@ export function getPlayerStat(player, gameData) {
     if (key == "skin" || key === "actions" || key == "socketID") {
       continue;
     }
-    if (key == "handDeck" || key =="personalHandDeck" || key=="personalHandDiscard") {
+    if (
+      key == "handDeck" ||
+      key == "personalHandDeck" ||
+      key == "personalHandDiscard"
+    ) {
       arrayOfStat.push({
         name: key,
         value: player[key].value.map((cardId) =>
@@ -32,10 +36,9 @@ export function getPlayerStat(player, gameData) {
       continue;
     }
     if (key == "roles") {
-        arrayOfStat.push({
+      arrayOfStat.push({
         name: "Roles",
-        value:  player.roles.value.map(role => role.name).join(", ")
-        
+        value: player.roles.value.map((role) => role.name).join(", "),
       });
       continue;
     }
@@ -56,7 +59,10 @@ export function getPlayerStat(player, gameData) {
     }
 
     if (player[key]) {
-      arrayOfStat.push({ name: key, value: player[key].value  != undefined?? player[key] });
+      arrayOfStat.push({
+        name: key,
+        value: player[key].value != undefined ?? player[key],
+      });
     }
   }
 
@@ -83,8 +89,14 @@ export function getPlayerOfCurrentView() {
     console.warn("Invalid gameData structure:", gameData);
     return null;
   }
-  return gameData.data.players.find(
+  let player = gameData.data.players.find(
     (player) => player.position == view.playerView,
+  );
+  if (player) return player;
+  return (
+    gameData.data.spectators.find(
+      (spectator) => spectator.position == view.playerView,
+    ) || null
   );
 }
 export function getSocketOfPlayerOfCurrentView() {
@@ -94,8 +106,10 @@ export function getSocketOfPlayerOfCurrentView() {
     console.warn("Invalid gameData structure:", gameData);
     return null;
   }
- let currentPlayer =  gameData.data.players.find(
+  let currentPlayer = gameData.data.players.find(
     (player) => player.position == view.playerView,
   );
-  return players.find(player => player.id == currentPlayer.id)?.socket || null;
+  return (
+    players.find((player) => player.id == currentPlayer.id)?.socket || null
+  );
 }

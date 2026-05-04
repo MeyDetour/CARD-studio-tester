@@ -5,6 +5,8 @@ export function startGame() {
   console.log("=========START ROOM=======");
   let socket = players[0]?.socket;
   if (socket) {
+
+  deleteAllGameVariablesSaved();
     socket.emit("startGame");
   } else {
     console.warn("Dont find socket to start game");

@@ -10,7 +10,7 @@ export function gameplay_spectatorBanniere(
     return "";
   }
   if (!gameData.data.spectators.some(spectator => spectator.id === currentPlayer.id)) {
-    return null;
+    return "";
   }
   return /*html */ `
    <div class="spectatorBanniere">

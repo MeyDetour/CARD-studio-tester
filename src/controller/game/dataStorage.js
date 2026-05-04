@@ -1,3 +1,5 @@
+import { players } from "../../main.js";
+
  
  
 export function storeGameData(gameData) {
@@ -73,15 +75,23 @@ export function storeView(obj){
   localStorage.setItem("view", JSON.stringify(obj));
 }
 export function getView(){
+
   return JSON.parse(localStorage.getItem("view")) || {
     statEventsDemonsWithValue: "value",
-    playerView: 1,    
+    playerView: players.length > 0 ? players[0].position : "1",    
   };
+}export function initView(){
+  console.log(players);
+  localStorage.setItem("view", JSON.stringify({
+    statEventsDemonsWithValue: "value",
+    playerView: players.length > 0 ? players[0].position : "1",      
+  })); 
 }
 
  
 export function deleteAllGameVariablesSaved(){
-  storeRoomId("")
+ 
   storeGameData("") 
   deletePlayerPlayedGame()
+  initView()
 }

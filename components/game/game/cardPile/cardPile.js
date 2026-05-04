@@ -1,7 +1,23 @@
 import { button } from "../../../button/button.js";
 import { serializeParams } from "../../../../src/helpers/serializer.js";
-export function gameplay_cardPile(cardsParams,actionParams, type, label, classname = "") {
-   
+import { getGameData } from "../../../../src/controller/game/dataStorage.js";
+import { getPlayerOfCurrentView } from "../../../../src/controller/game/players.js";
+export function gameplay_cardPile(
+  cardsParams,
+  actionParams,
+  type,
+  label,
+  classname = "",
+) {
+  let gameData = getGameData();
+  let currentPlayer = getPlayerOfCurrentView();
+  if (
+    gameData.data.spectators.some(
+      (spectator) => spectator.id == currentPlayer.id,
+    )
+  ) {
+    return "";
+  }
   if (type == "deck" && !cardsParams?.deck?.activation) {
     return "";
   }
@@ -10,7 +26,7 @@ export function gameplay_cardPile(cardsParams,actionParams, type, label, classna
   }
 
   return /*html */ `
-   <div onclick="${actionParams && actionParams.action ? `doAction(${ serializeParams( actionParams)})` : ""}" class="gameplayPile ${classname}" id="pile-type-${type}">
+   <div onclick="${actionParams && actionParams.action ? `doAction(${serializeParams(actionParams)})` : ""}" class="gameplayPile ${classname}" id="pile-type-${type}">
    <img src="/assets/images/cardBack.png">
   ${actionParams ? /*html */ `<span class="actionLabel">${actionParams.action}</span>` : ""}
  
@@ -26,17 +42,16 @@ export function reloadComposant_gameplayCardPile(
   type,
   label,
   classname = "",
-) 
- {
-  let actionsContainer = document.querySelector(`#pile-type-${type}`);
-  if (actionsContainer) {
-    actionsContainer.remove();
+) {
+  let pileContainer = document.querySelector(`#pile-type-${type}`);
+  if (pileContainer) {
+    pileContainer.remove();
   }
   content.innerHTML += gameplay_cardPile(
     cardsParams,
     actionParams,
     type,
     label,
-    classname
-  );  
+    classname,
+  );
 }
